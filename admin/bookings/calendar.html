@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Lịch khám theo tháng – MediCare Admin">
+  <meta name="theme-color" content="#0f766e">
+
+  <title>Lịch khám theo tháng – Admin</title>
+
+  <link rel="icon" href="../../assets/images/logo/favicon.ico">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body class="admin-body">
+
+  <div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+    <aside
+      class="admin-sidebar"
+      id="adminSidebar"
+      aria-label="Điều hướng quản trị"
+    ></aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+    <div class="admin-main">
+
+      <!-- ===================================================
+           TOPBAR
+      ==================================================== -->
+      <header class="admin-topbar">
+
+        <div class="admin-topbar__left">
+
+          <button
+            type="button"
+            class="admin-topbar__toggle"
+            id="sidebarToggle"
+            aria-label="Mở hoặc đóng thanh điều hướng"
+            aria-controls="adminSidebar"
+          >
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M4 7H20M4 12H20M4 17H20"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+
+          <div class="admin-topbar__search">
+
+            <svg
+              class="admin-topbar__search-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <path
+                d="M16.5 16.5L21 21"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Tìm kiếm nhanh..."
+              aria-label="Tìm kiếm nhanh"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="admin-topbar__actions">
+
+          <!-- NOTIFICATION -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Thông báo"
+            aria-label="Thông báo"
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 15 3 16 3 16H21C21 16 18 15 18 8Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M14 20H10"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <span class="badge-dot"></span>
+          </button>
+
+
+          <!-- MESSAGE -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Tin nhắn"
+            aria-label="Tin nhắn"
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M21 12C21 16.418 16.971 20 12 20C10.72 20 9.5 19.76 8.4 19.32L3 21L4.65 16.55C3.6 15.25 3 13.68 3 12C3 7.582 7.029 4 12 4C16.971 4 21 7.582 21 12Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+
+          <!-- USER -->
+          <div class="admin-topbar__user">
+
+            <div
+              class="admin-topbar__avatar"
+              id="topbarAvatar"
+            >
+              A
+            </div>
+
+            <div class="admin-topbar__user-info">
+              <strong id="topbarName">Admin</strong>
+              <small id="topbarRole">Quản trị viên</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           CONTENT
+      ==================================================== -->
+      <main class="admin-content">
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+        <div class="admin-page-header">
+
+          <div>
+
+            <nav
+              class="breadcrumb"
+              aria-label="Breadcrumb"
+            >
+              <a href="../dashboard.html">
+                Dashboard
+              </a>
+
+              <span>/</span>
+
+              <a href="list.html">
+                Quản lý lịch khám
+              </a>
+
+              <span>/</span>
+
+              <span aria-current="page">
+                Xem theo lịch
+              </span>
+            </nav>
+
+
+            <span class="admin-page-header__eyebrow">
+              Lịch điều phối
+            </span>
+
+            <h1 class="admin-page-header__title">
+              Lịch khám theo tháng
+            </h1>
+
+            <p class="admin-page-header__desc">
+              Theo dõi và quản lý lịch khám trực quan theo ngày, tuần và tháng.
+            </p>
+
+          </div>
+
+
+          <div class="admin-page-header__actions">
+
+            <!-- TABLE VIEW -->
+            <a
+              href="list.html"
+              class="btn btn--outline"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect
+                  x="4"
+                  y="4"
+                  width="16"
+                  height="16"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+
+                <path
+                  d="M4 9H20M9 9V20"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+
+              Xem dạng bảng
+            </a>
+
+
+            <!-- EXPORT -->
+            <button
+              type="button"
+              class="btn btn--primary"
+              onclick="exportBookings()"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 3V15M7 10L12 15L17 10"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M5 20H19"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Xuất Excel
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CALENDAR CONTROL PANEL
+        ================================================== -->
+        <section class="card card--pad admin-calendar-control">
+
+          <div class="admin-calendar-control__head">
+
+            <div>
+
+              <span class="admin-calendar-control__eyebrow">
+                Điều hướng lịch
+              </span>
+
+              <h2 class="admin-calendar-control__heading">
+                Chọn thời gian và bộ lọc
+              </h2>
+
+            </div>
+
+
+            <div class="admin-calendar-control__icon">
+
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="16"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+
+                <path
+                  d="M8 3V7M16 3V7M3 10H21"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M8 14H10M14 14H16M8 17H10M14 17H16"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               CALENDAR TOOLBAR
+          ================================================ -->
+          <div class="calendar-toolbar">
+
+            <!-- NAVIGATION -->
+            <div class="calendar-toolbar__nav">
+
+              <button
+                type="button"
+                class="btn btn--outline btn--sm calendar-nav-btn"
+                id="prevMonthBtn"
+                aria-label="Xem tháng trước"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span>Tháng trước</span>
+              </button>
+
+
+              <div class="calendar-toolbar__current">
+
+                <span class="calendar-toolbar__current-label">
+                  Đang xem
+                </span>
+
+                <h2
+                  class="calendar-toolbar__title"
+                  id="calendarTitle"
+                  aria-live="polite"
+                >
+                  Tháng 9, 2026
+                </h2>
+
+              </div>
+
+
+              <button
+                type="button"
+                class="btn btn--outline btn--sm calendar-nav-btn"
+                id="nextMonthBtn"
+                aria-label="Xem tháng sau"
+              >
+                <span>Tháng sau</span>
+
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M9 6L15 12L9 18"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+
+              <button
+                type="button"
+                class="btn btn--primary btn--sm"
+                id="todayBtn"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="16"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+
+                  <path
+                    d="M8 3V7M16 3V7M3 10H21"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  />
+
+                  <circle
+                    cx="12"
+                    cy="15"
+                    r="2"
+                    fill="currentColor"
+                  />
+                </svg>
+
+                Hôm nay
+              </button>
+
+            </div>
+
+
+            <!-- FILTER -->
+            <div class="calendar-toolbar__filter">
+
+              <div class="calendar-filter-field">
+
+                <label for="filterStatus">
+                  Trạng thái
+                </label>
+
+                <select
+                  id="filterStatus"
+                  class="form-control form-control--sm"
+                >
+                  <option value="">
+                    Tất cả trạng thái
+                  </option>
+
+                  <option value="pending">
+                    Chờ xác nhận
+                  </option>
+
+                  <option value="confirmed">
+                    Đã xác nhận
+                  </option>
+
+                  <option value="completed">
+                    Đã khám
+                  </option>
+
+                  <option value="cancelled">
+                    Đã hủy
+                  </option>
+                </select>
+
+              </div>
+
+
+              <div class="calendar-filter-field">
+
+                <label for="filterSpecialty">
+                  Chuyên khoa
+                </label>
+
+                <select
+                  id="filterSpecialty"
+                  class="form-control form-control--sm"
+                >
+                  <option value="">
+                    Tất cả chuyên khoa
+                  </option>
+                </select>
+
+              </div>
+
+
+              <div class="calendar-filter-field">
+
+                <label for="viewMode">
+                  Kiểu hiển thị
+                </label>
+
+                <select
+                  id="viewMode"
+                  class="form-control form-control--sm"
+                >
+                  <option value="month">
+                    Xem theo tháng
+                  </option>
+
+                  <option value="week">
+                    Xem theo tuần
+                  </option>
+
+                  <option value="day">
+                    Xem theo ngày
+                  </option>
+                </select>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LEGEND
+        ================================================== -->
+        <div
+          class="calendar-legend"
+          aria-label="Chú thích trạng thái lịch khám"
+        >
+
+          <div class="calendar-legend__label">
+
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+
+              <path
+                d="M12 11V16"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+
+              <circle
+                cx="12"
+                cy="8"
+                r="1"
+                fill="currentColor"
+              />
+            </svg>
+
+            <strong>Trạng thái</strong>
+
+          </div>
+
+
+          <span class="calendar-legend__item">
+            <span class="dot dot--warning"></span>
+            Chờ xác nhận
+          </span>
+
+
+          <span class="calendar-legend__item">
+            <span class="dot dot--success"></span>
+            Đã xác nhận
+          </span>
+
+
+          <span class="calendar-legend__item">
+            <span class="dot dot--primary"></span>
+            Đã khám
+          </span>
+
+
+          <span class="calendar-legend__item">
+            <span class="dot dot--danger"></span>
+            Đã hủy
+          </span>
+
+        </div>
+
+
+        <!-- =================================================
+             MONTH CALENDAR
+        ================================================== -->
+        <section class="calendar admin-booking-calendar">
+
+          <!-- WEEKDAY HEADER -->
+          <div class="calendar__head">
+
+            <div class="calendar__day-name">
+              <span class="calendar__day-full">Thứ 2</span>
+              <span class="calendar__day-short">T2</span>
+            </div>
+
+            <div class="calendar__day-name">
+              <span class="calendar__day-full">Thứ 3</span>
+              <span class="calendar__day-short">T3</span>
+            </div>
+
+            <div class="calendar__day-name">
+              <span class="calendar__day-full">Thứ 4</span>
+              <span class="calendar__day-short">T4</span>
+            </div>
+
+            <div class="calendar__day-name">
+              <span class="calendar__day-full">Thứ 5</span>
+              <span class="calendar__day-short">T5</span>
+            </div>
+
+            <div class="calendar__day-name">
+              <span class="calendar__day-full">Thứ 6</span>
+              <span class="calendar__day-short">T6</span>
+            </div>
+
+            <div class="calendar__day-name">
+              <span class="calendar__day-full">Thứ 7</span>
+              <span class="calendar__day-short">T7</span>
+            </div>
+
+            <div class="calendar__day-name calendar__day-name--weekend">
+              <span class="calendar__day-full">Chủ nhật</span>
+              <span class="calendar__day-short">CN</span>
+            </div>
+
+          </div>
+
+
+          <!-- JS CALENDAR -->
+          <div
+            class="calendar__body"
+            id="calendarBody"
+            aria-live="polite"
+          >
+            <!-- JS render -->
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MONTH STATISTICS
+        ================================================== -->
+        <section
+          class="admin-section admin-calendar-stats"
+          aria-label="Thống kê lịch khám trong tháng"
+        >
+
+          <div class="admin-section-heading">
+
+            <div>
+
+              <span class="admin-section-heading__eyebrow">
+                Tổng quan tháng
+              </span>
+
+              <h2 class="admin-section-heading__title">
+                Thống kê lịch khám
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="grid grid--4 stats-grid">
+
+            <!-- TOTAL -->
+            <article class="stat-card stat-card--primary">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect
+                      x="5"
+                      y="4"
+                      width="14"
+                      height="17"
+                      rx="2"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+
+                    <path
+                      d="M9 4.5V3H15V4.5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+
+                    <path
+                      d="M9 9H15M9 13H15M9 17H13"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+
+                </div>
+
+                <span class="stat-card__meta">
+                  Tổng quan
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="monthTotalBookings">
+                  0
+                </strong>
+
+                <span>
+                  Lịch khám tháng này
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <!-- PENDING -->
+            <article class="stat-card stat-card--warning">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+
+                    <path
+                      d="M12 7V12L15.5 14"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                </div>
+
+                <span class="stat-card__meta">
+                  Chờ xử lý
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="monthPending">
+                  0
+                </strong>
+
+                <span>
+                  Chờ xác nhận
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <!-- CONFIRMED -->
+            <article class="stat-card stat-card--success">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+
+                    <path
+                      d="M8 12.5L10.7 15L16.5 9"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                </div>
+
+                <span class="stat-card__meta">
+                  Đã duyệt
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="monthConfirmed">
+                  0
+                </strong>
+
+                <span>
+                  Đã xác nhận
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <!-- CANCELLED -->
+            <article class="stat-card stat-card--danger">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+
+                    <path
+                      d="M9 9L15 15M15 9L9 15"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+
+                </div>
+
+                <span class="stat-card__meta">
+                  Đã đóng
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="monthCancelled">
+                  0
+                </strong>
+
+                <span>
+                  Đã hủy
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+      </main>
+
+
+      <!-- ===================================================
+           FOOTER
+      ==================================================== -->
+      <footer class="admin-footer">
+        <p>© 2026Admin Panel.</p>
+      </footer>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       DAY BOOKINGS MODAL
+  ======================================================== -->
+  <div
+    class="modal"
+    id="dayBookingsModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="dayBookingsTitle"
+  >
+
+    <div
+      class="modal__overlay"
+      onclick="closeModal('dayBookingsModal')"
+    ></div>
+
+
+    <div class="modal__content admin-calendar-modal">
+
+      <!-- HEADER -->
+      <div class="modal__header">
+
+        <div class="admin-calendar-modal__heading">
+
+          <div class="admin-calendar-modal__icon">
+
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="16"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+
+              <path
+                d="M8 3V7M16 3V7M3 10H21"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M8 14H10M14 14H16"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <span class="admin-modal__eyebrow">
+              Chi tiết theo ngày
+            </span>
+
+            <h3
+              class="modal__title"
+              id="dayBookingsTitle"
+            >
+              Lịch khám
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="modal__close"
+          onclick="closeModal('dayBookingsModal')"
+          aria-label="Đóng hộp thoại"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+
+      <!-- BODY -->
+      <div
+        class="modal__body admin-calendar-modal__body"
+        id="dayBookingsBody"
+      >
+        <!-- JS render -->
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="modal__footer">
+
+        <button
+          type="button"
+          class="btn btn--outline"
+          onclick="closeModal('dayBookingsModal')"
+        >
+          Đóng
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       SCRIPTS
+  ======================================================== -->
+
+  <!-- Core -->
+  <script src="../../js/core/config.js"></script>
+  <script src="../../js/core/storage.js"></script>
+  <script src="../../js/core/utils.js"></script>
+  <script src="../../js/core/validator.js"></script>
+
+  <!-- Data -->
+  <script src="../../js/data/specialties.js"></script>
+  <script src="../../js/data/doctors.js"></script>
+  <script src="../../js/data/seed.js"></script>
+
+  <!-- Services -->
+  <script src="../../js/services/auth.service.js"></script>
+  <script src="../../js/services/doctor.service.js"></script>
+  <script src="../../js/services/booking.service.js"></script>
+  <script src="../../js/services/user.service.js"></script>
+
+  <!-- Components -->
+  <script src="../../js/components/header.js"></script>
+  <script src="../../js/components/footer.js"></script>
+  <script src="../../js/components/sidebar.js"></script>
+  <script src="../../js/components/toast.js"></script>
+  <script src="../../js/components/modal.js"></script>
+
+  <!-- Page -->
+  <script src="../../js/pages/admin.js"></script>
+
+  <!-- App -->
+  <script src="../../js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Quản lý bác sĩ – MediCare Admin">
+  <meta name="theme-color" content="#0f766e">
+
+  <title>Quản lý bác sĩ – MediCare Admin</title>
+
+  <link rel="icon" href="../../assets/images/logo/favicon.ico">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body class="admin-body">
+
+  <div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+    <aside
+      class="admin-sidebar"
+      id="adminSidebar"
+      aria-label="Điều hướng quản trị"
+    ></aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+    <div class="admin-main">
+
+      <!-- ===================================================
+           TOPBAR
+           =================================================== -->
+      <header class="admin-topbar">
+
+        <div class="admin-topbar__left">
+
+          <!-- SIDEBAR TOGGLE -->
+          <button
+            type="button"
+            class="admin-topbar__toggle"
+            id="sidebarToggle"
+            aria-label="Mở hoặc đóng thanh điều hướng"
+            aria-controls="adminSidebar"
+          >
+            <svg
+              width="21"
+              height="21"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 7H20M4 12H20M4 17H20"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+
+          <!-- QUICK SEARCH -->
+          <div class="admin-topbar__search">
+
+            <svg
+              class="admin-topbar__search-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <path
+                d="M16.5 16.5L21 21"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Tìm kiếm nhanh..."
+              aria-label="Tìm kiếm nhanh"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- TOPBAR ACTIONS -->
+        <div class="admin-topbar__actions">
+
+          <!-- NOTIFICATION -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Thông báo"
+            aria-label="Thông báo"
+          >
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 15 3 16 3 16H21C21 16 18 15 18 8Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M14 20H10"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <span class="badge-dot"></span>
+          </button>
+
+
+          <!-- MESSAGE -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Tin nhắn"
+            aria-label="Tin nhắn"
+          >
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 12C21 16.418 16.971 20 12 20C10.72 20 9.5 19.76 8.4 19.32L3 21L4.65 16.55C3.6 15.25 3 13.68 3 12C3 7.582 7.029 4 12 4C16.971 4 21 7.582 21 12Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+
+          <!-- USER -->
+          <div class="admin-topbar__user">
+
+            <div
+              class="admin-topbar__avatar"
+              id="topbarAvatar"
+              aria-hidden="true"
+            >
+              A
+            </div>
+
+            <div class="admin-topbar__user-info">
+              <strong id="topbarName">Admin</strong>
+              <small id="topbarRole">Quản trị viên</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           CONTENT
+           =================================================== -->
+      <main class="admin-content">
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+        <div class="admin-page-header">
+
+          <div>
+
+            <nav
+              class="breadcrumb"
+              aria-label="Breadcrumb"
+            >
+              <a href="../dashboard.html">
+                Dashboard
+              </a>
+
+              <span>/</span>
+
+              <span aria-current="page">
+                Quản lý bác sĩ
+              </span>
+            </nav>
+
+
+            <span class="admin-page-header__eyebrow">
+              Nhân sự chuyên môn
+            </span>
+
+            <h1 class="admin-page-header__title">
+              Quản lý bác sĩ
+            </h1>
+
+            <p class="admin-page-header__desc">
+              Theo dõi, tìm kiếm và quản lý thông tin bác sĩ đang hoạt động trong hệ thống MediCare.
+            </p>
+
+          </div>
+
+
+          <!-- ADD DOCTOR -->
+          <div class="admin-page-header__actions">
+
+            <a
+              href="create.html"
+              class="btn btn--primary"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5V19M5 12H19"
+                  stroke="currentColor"
+                  stroke-width="1.9"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Thêm bác sĩ
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MANAGEMENT CARD
+             ================================================= -->
+        <section class="card card--pad admin-management-card">
+
+          <!-- TOOLBAR -->
+          <div class="toolbar admin-doctors-toolbar">
+
+            <!-- SEARCH -->
+            <div class="toolbar__search admin-search-input">
+
+              <svg
+                class="admin-search-input__icon"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="7"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <path
+                  d="M16.5 16.5L21 21"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              <input
+                type="search"
+                id="searchInput"
+                class="form-control"
+                placeholder="Tìm theo tên, chuyên khoa, email..."
+                autocomplete="off"
+                aria-label="Tìm kiếm bác sĩ"
+              >
+
+            </div>
+
+
+            <!-- FILTERS -->
+            <div class="toolbar__filter">
+
+              <select
+                id="filterSpecialty"
+                class="form-control"
+                aria-label="Lọc theo chuyên khoa"
+              >
+                <option value="">
+                  Tất cả chuyên khoa
+                </option>
+              </select>
+
+
+              <select
+                id="filterStatus"
+                class="form-control"
+                aria-label="Lọc theo trạng thái"
+              >
+                <option value="">
+                  Tất cả trạng thái
+                </option>
+
+                <option value="active">
+                  Đang hoạt động
+                </option>
+
+                <option value="inactive">
+                  Tạm nghỉ
+                </option>
+              </select>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+            <div class="toolbar__actions">
+
+              <button
+                type="button"
+                class="btn btn--outline btn--sm"
+                onclick="exportDoctors()"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3V15M7 10L12 15L17 10"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+
+                  <path
+                    d="M5 19H19"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+                Xuất Excel
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- RESULT INFO -->
+          <div class="admin-result-row">
+
+            <p
+              class="result-count"
+              id="resultCount"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+
+          <!-- =================================================
+               DOCTOR TABLE
+               ================================================= -->
+          <div class="table-wrap admin-table-wrap">
+
+            <table class="table admin-doctors-table">
+
+              <thead>
+
+                <tr>
+
+                  <th style="width: 50px">
+
+                    <input
+                      type="checkbox"
+                      id="checkAll"
+                      aria-label="Chọn tất cả bác sĩ"
+                    >
+
+                  </th>
+
+                  <th>
+                    ID
+                  </th>
+
+                  <th>
+                    Bác sĩ
+                  </th>
+
+                  <th>
+                    Chuyên khoa
+                  </th>
+
+                  <th>
+                    Học vị
+                  </th>
+
+                  <th>
+                    Kinh nghiệm
+                  </th>
+
+                  <th>
+                    Phí khám
+                  </th>
+
+                  <th>
+                    Đánh giá
+                  </th>
+
+                  <th>
+                    Trạng thái
+                  </th>
+
+                  <th style="width: 140px">
+                    Hành động
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody id="doctorTableBody">
+                <!-- JS render -->
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+          <!-- =================================================
+               EMPTY STATE
+               ================================================= -->
+          <div
+            class="empty-state admin-empty-state"
+            id="emptyState"
+            style="display: none;"
+          >
+
+            <div class="empty-state__icon">
+
+              <svg
+                width="34"
+                height="34"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="12"
+                  cy="7"
+                  r="3.5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+
+                <path
+                  d="M5.5 20V18C5.5 14.96 8.41 12.5 12 12.5C15.59 12.5 18.5 14.96 18.5 18V20"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M18 5V9M16 7H20"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </div>
+
+
+            <h3>
+              Chưa có bác sĩ nào
+            </h3>
+
+            <p>
+              Hệ thống hiện chưa có dữ liệu bác sĩ. Hãy thêm bác sĩ đầu tiên để bắt đầu quản lý.
+            </p>
+
+
+            <a
+              href="create.html"
+              class="btn btn--primary"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5V19M5 12H19"
+                  stroke="currentColor"
+                  stroke-width="1.9"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Thêm bác sĩ
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               PAGINATION
+               ================================================= -->
+          <nav
+            class="pagination"
+            id="pagination"
+            aria-label="Phân trang danh sách bác sĩ"
+          ></nav>
+
+        </section>
+
+      </main>
+
+
+      <!-- ===================================================
+           FOOTER
+           =================================================== -->
+      <footer class="admin-footer">
+        <p>© 2026 MediCare Admin Panel.</p>
+      </footer>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       DELETE MODAL
+       ======================================================= -->
+  <div
+    class="modal"
+    id="deleteModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="deleteDoctorModalTitle"
+  >
+
+    <div
+      class="modal__overlay"
+      onclick="closeModal('deleteModal')"
+    ></div>
+
+
+    <div class="modal__content modal__content--sm">
+
+      <!-- HEADER -->
+      <div class="modal__header">
+
+        <div>
+
+          <span class="admin-modal__eyebrow">
+            Xóa bác sĩ
+          </span>
+
+          <h3
+            class="modal__title"
+            id="deleteDoctorModalTitle"
+          >
+            Xác nhận xóa
+          </h3>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="modal__close"
+          onclick="closeModal('deleteModal')"
+          aria-label="Đóng hộp thoại"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+
+      <!-- BODY -->
+      <div class="modal__body">
+
+        <div class="admin-delete-warning">
+
+          <div class="admin-delete-warning__icon">
+
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 3L22 20H2L12 3Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M12 9V14"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+
+              <circle
+                cx="12"
+                cy="17"
+                r="1"
+                fill="currentColor"
+              />
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <p>
+              Bạn có chắc muốn xóa bác sĩ
+              <strong id="deleteDoctorName">—</strong>?
+            </p>
+
+            <p class="text-sm text-gray">
+              Dữ liệu sau khi xóa sẽ không thể khôi phục bằng thao tác thông thường.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="modal__footer">
+
+        <button
+          type="button"
+          class="btn btn--outline"
+          onclick="closeModal('deleteModal')"
+        >
+          Hủy
+        </button>
+
+
+        <button
+          type="button"
+          class="btn btn--danger"
+          id="confirmDeleteBtn"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 7H20"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M9 3H15L16 7H8L9 3Z"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M6.5 7L7.5 21H16.5L17.5 7"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M10 11V17M14 11V17"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          Xóa bác sĩ
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       SCRIPTS
+       ======================================================= -->
+
+  <!-- Core -->
+  <script src="../../js/core/config.js"></script>
+  <script src="../../js/core/storage.js"></script>
+  <script src="../../js/core/utils.js"></script>
+  <script src="../../js/core/validator.js"></script>
+
+  <!-- Data -->
+  <script src="../../js/data/specialties.js"></script>
+  <script src="../../js/data/doctors.js"></script>
+  <script src="../../js/data/seed.js"></script>
+
+  <!-- Services -->
+  <script src="../../js/services/auth.service.js"></script>
+  <script src="../../js/services/doctor.service.js"></script>
+  <script src="../../js/services/booking.service.js"></script>
+  <script src="../../js/services/user.service.js"></script>
+
+  <!-- Components -->
+  <script src="../../js/components/header.js"></script>
+  <script src="../../js/components/footer.js"></script>
+  <script src="../../js/components/sidebar.js"></script>
+  <script src="../../js/components/toast.js"></script>
+  <script src="../../js/components/modal.js"></script>
+
+  <!-- Page -->
+  <script src="../../js/pages/admin.js"></script>
+
+  <!-- App -->
+  <script src="../../js/app.js"></script>
+
+</body>
+</html>

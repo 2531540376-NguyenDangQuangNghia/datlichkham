@@ -1,0 +1,155 @@
+dat-lich-kham/
+│
+├── index.html
+├── README.md
+├── .gitignore
+│
+├── pages/
+│   ├── auth/
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   └── forgot-password.html
+│   ├── doctors/
+│   │   ├── list.html
+│   │   ├── search.html
+│   │   └── detail.html
+│   ├── booking/
+│   │   ├── create.html
+│   │   ├── success.html
+│   │   └── history.html
+│   ├── user/
+│   │   ├── profile.html
+│   │   ├── change-password.html
+│   │   └── favorites.html
+│   └── static/
+│       ├── about.html
+│       ├── contact.html
+│       └── faq.html
+│
+├── admin/
+│   ├── index.html
+│   ├── dashboard.html
+│   ├── doctors/
+│   │   ├── list.html
+│   │   ├── create.html
+│   │   └── edit.html
+│   ├── specialties/
+│   │   ├── list.html
+│   │   └── form.html
+│   ├── users/
+│   │   ├── list.html
+│   │   ├── detail.html
+│   │   └── edit.html
+│   ├── bookings/
+│   │   ├── list.html
+│   │   ├── detail.html
+│   │   └── calendar.html
+│   ├── reports/
+│   │   ├── revenue.html
+│   │   ├── bookings.html
+│   │   └── doctors.html
+│   └── settings/
+│       ├── general.html
+│       └── profile.html
+│
+├── css/
+│   ├── base/
+│   │   ├── reset.css
+│   │   ├── variables.css
+│   │   └── typography.css
+│   ├── components/
+│   │   ├── button.css
+│   │   ├── card.css
+│   │   ├── form.css
+│   │   ├── table.css
+│   │   ├── modal.css
+│   │   ├── alert.css
+│   │   ├── badge.css
+│   │   └── pagination.css
+│   ├── layout/
+│   │   ├── header.css
+│   │   ├── footer.css
+│   │   ├── sidebar.css
+│   │   └── grid.css
+│   ├── pages/
+│   │   ├── home.css
+│   │   ├── auth.css
+│   │   ├── doctors.css
+│   │   ├── booking.css
+│   │   ├── profile.css
+│   │   └── admin.css
+│   ├── utils/
+│   │   ├── helpers.css
+│   │   └── animations.css
+│   └── main.css
+│
+├── js/
+│   ├── core/
+│   │   ├── config.js
+│   │   ├── storage.js
+│   │   ├── utils.js
+│   │   └── validator.js
+│   ├── data/
+│   │   ├── doctors.js
+│   │   ├── specialties.js
+│   │   └── seed.js
+│   ├── services/
+│   │   ├── auth.service.js
+│   │   ├── doctor.service.js
+│   │   ├── booking.service.js
+│   │   └── user.service.js
+│   ├── components/
+│   │   ├── header.js
+│   │   ├── footer.js
+│   │   ├── sidebar.js
+│   │   ├── toast.js
+│   │   └── modal.js
+│   ├── pages/
+│   │   ├── home.js
+│   │   ├── auth.js
+│   │   ├── doctors.js
+│   │   ├── doctor-detail.js
+│   │   ├── booking.js
+│   │   ├── history.js
+│   │   ├── profile.js
+│   │   └── admin.js
+│   └── app.js
+│
+├── assets/
+│   ├── images/
+│   │   ├── logo/
+│   │   │   ├── logo.svg
+│   │   │   ├── logo-white.svg
+│   │   │   └── favicon.ico
+│   │   ├── banner/
+│   │   │   ├── hero-bg.jpg
+│   │   │   └── promo-1.jpg
+│   │   ├── doctors/
+│   │   │   ├── doctor-01.jpg
+│   │   │   ├── doctor-02.jpg
+│   │   │   └── ...
+│   │   ├── specialties/
+│   │   │   ├── tim-mach.svg
+│   │   │   ├── nhi-khoa.svg
+│   │   │   └── ...
+│   │   └── icons/
+│   │       ├── calendar.svg
+│   │       ├── clock.svg
+│   │       └── ...
+│   ├── fonts/
+│   │   ├── Inter-Regular.woff2
+│   │   ├── Inter-Bold.woff2
+│   │   └── ...
+│   └── docs/
+│       ├── wireframes/
+│       │   ├── 01-home.png
+│       │   ├── 02-login.png
+│       │   └── ...
+│       ├── baocao.docx
+│       └── phancong.xlsx
+│
+├── libs/
+│   ├── chart.min.js
+│   └── datepicker.min.js
+│
+└── .gitignore

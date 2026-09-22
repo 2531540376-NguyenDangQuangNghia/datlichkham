@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Báo cáo doanh thu – MediCare Admin">
+  <meta name="theme-color" content="#0f766e">
+
+  <title>Báo cáo doanh thu – MediCare Admin</title>
+
+  <link rel="icon" href="../../assets/images/logo/favicon.ico">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body class="admin-body">
+
+  <div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+    <aside
+      class="admin-sidebar"
+      id="adminSidebar"
+      aria-label="Điều hướng quản trị"
+    ></aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+    <div class="admin-main">
+
+      <!-- TOPBAR -->
+      <header class="admin-topbar">
+
+        <div class="admin-topbar__left">
+
+          <button
+            type="button"
+            class="admin-topbar__toggle"
+            id="sidebarToggle"
+            aria-label="Mở hoặc đóng thanh điều hướng"
+          >
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M4 7H20M4 12H20M4 17H20"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+
+          <div class="admin-topbar__search">
+
+            <svg
+              class="admin-topbar__search-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <path
+                d="M16.5 16.5L21 21"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Tìm kiếm nhanh..."
+              aria-label="Tìm kiếm nhanh"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="admin-topbar__actions">
+
+          <!-- NOTIFICATION -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Thông báo"
+            aria-label="Thông báo"
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 15 3 16 3 16H21C21 16 18 15 18 8Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M14 20H10"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <span class="badge-dot"></span>
+          </button>
+
+
+          <!-- MESSAGE -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Tin nhắn"
+            aria-label="Tin nhắn"
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M21 12C21 16.418 16.971 20 12 20C10.72 20 9.5 19.76 8.4 19.32L3 21L4.65 16.55C3.6 15.25 3 13.68 3 12C3 7.582 7.029 4 12 4C16.971 4 21 7.582 21 12Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+
+          <!-- USER -->
+          <div class="admin-topbar__user">
+
+            <div
+              class="admin-topbar__avatar"
+              id="topbarAvatar"
+            >
+              A
+            </div>
+
+            <div class="admin-topbar__user-info">
+              <strong id="topbarName">Admin</strong>
+              <small id="topbarRole">Quản trị viên</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- =====================================================
+           CONTENT
+           ===================================================== -->
+      <main class="admin-content">
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+        <div class="admin-page-header">
+
+          <div>
+
+            <nav
+              class="breadcrumb"
+              aria-label="Breadcrumb"
+            >
+              <a href="../dashboard.html">Dashboard</a>
+              <span>/</span>
+              <span>Báo cáo</span>
+              <span>/</span>
+              <span aria-current="page">Doanh thu</span>
+            </nav>
+
+            <span class="admin-page-header__eyebrow">
+              Báo cáo tài chính
+            </span>
+
+            <h1 class="admin-page-header__title">
+              Báo cáo doanh thu
+            </h1>
+
+            <p class="admin-page-header__desc">
+              Theo dõi doanh thu, hiệu suất lịch khám và cơ cấu nguồn thu theo từng khoảng thời gian.
+            </p>
+
+          </div>
+
+
+          <div class="admin-page-header__actions">
+
+            <button
+              type="button"
+              class="btn btn--outline btn--sm"
+              onclick="exportReport()"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 3V15M7 10L12 15L17 10"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M5 19H19"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Xuất Excel
+            </button>
+
+
+            <button
+              type="button"
+              class="btn btn--primary btn--sm"
+              onclick="window.print()"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M7 8V3H17V8"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M7 17H5C3.9 17 3 16.1 3 15V10C3 8.9 3.9 8 5 8H19C20.1 8 21 8.9 21 10V15C21 16.1 20.1 17 19 17H17"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <rect
+                  x="7"
+                  y="14"
+                  width="10"
+                  height="7"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <circle
+                  cx="17.5"
+                  cy="11.5"
+                  r=".8"
+                  fill="currentColor"
+                />
+              </svg>
+
+              In báo cáo
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FILTERS
+             ================================================= -->
+        <section class="card card--pad admin-report-filter-card">
+
+          <div class="admin-report-filter-card__head">
+
+            <div class="admin-report-filter-card__title">
+
+              <span class="admin-report-filter-card__icon">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M4 5H20L14 12V18L10 20V12L4 5Z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+
+              <div>
+                <span class="admin-report-filter-card__eyebrow">
+                  Bộ lọc
+                </span>
+
+                <h2>
+                  Phạm vi báo cáo
+                </h2>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="report-filters">
+
+            <!-- FROM DATE -->
+            <div class="report-filters__group">
+
+              <label for="fromDate">
+                Từ ngày
+              </label>
+
+              <input
+                type="date"
+                id="fromDate"
+                class="form-control"
+              >
+
+            </div>
+
+
+            <!-- TO DATE -->
+            <div class="report-filters__group">
+
+              <label for="toDate">
+                Đến ngày
+              </label>
+
+              <input
+                type="date"
+                id="toDate"
+                class="form-control"
+              >
+
+            </div>
+
+
+            <!-- PERIOD -->
+            <div class="report-filters__group">
+
+              <label for="periodSelect">
+                Khoảng thời gian
+              </label>
+
+              <select
+                id="periodSelect"
+                class="form-control"
+              >
+                <option value="today">Hôm nay</option>
+                <option value="week">7 ngày qua</option>
+                <option value="month" selected>Tháng này</option>
+                <option value="quarter">Quý này</option>
+                <option value="year">Năm nay</option>
+                <option value="custom">Tùy chọn</option>
+              </select>
+
+            </div>
+
+
+            <!-- SPECIALTY -->
+            <div class="report-filters__group">
+
+              <label for="filterSpecialty">
+                Chuyên khoa
+              </label>
+
+              <select
+                id="filterSpecialty"
+                class="form-control"
+              >
+                <option value="">
+                  Tất cả chuyên khoa
+                </option>
+              </select>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+            <div class="report-filters__actions">
+
+              <button
+                type="button"
+                class="btn btn--primary"
+                id="applyFilterBtn"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+
+                  <path
+                    d="M16.5 16.5L21 21"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+                Áp dụng
+              </button>
+
+
+              <button
+                type="button"
+                class="btn btn--outline"
+                id="resetFilterBtn"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M4 4V10H10"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+
+                  <path
+                    d="M5.5 15.5C6.8 18.2 9.2 20 12 20C16.4 20 20 16.4 20 12C20 7.6 16.4 4 12 4C8.9 4 6.2 5.8 4.9 8.4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+                Đặt lại
+              </button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OVERVIEW STATS
+             ================================================= -->
+        <section class="admin-section admin-report-overview">
+
+          <div class="admin-section-heading">
+
+            <div>
+              <span class="admin-section-heading__eyebrow">
+                Tổng quan
+              </span>
+
+              <h2 class="admin-section-heading__title">
+                Hiệu suất doanh thu
+              </h2>
+            </div>
+
+          </div>
+
+
+          <div class="grid grid--4 stats-grid">
+
+            <!-- TOTAL REVENUE -->
+            <article class="stat-card stat-card--primary">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+
+                    <path
+                      d="M15 8.5H10.5C9.12 8.5 8 9.4 8 10.5C8 11.6 9.12 12.5 10.5 12.5H13.5C14.88 12.5 16 13.4 16 14.5C16 15.6 14.88 16.5 13.5 16.5H9"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+
+                    <path
+                      d="M12 6.5V8.5M12 16.5V18.5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+
+                </div>
+
+
+                <span class="stat-card__meta">
+                  Doanh thu
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="statTotalRevenue">
+                  0 đ
+                </strong>
+
+                <span>
+                  Tổng doanh thu
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <!-- COMPLETED -->
+            <article class="stat-card stat-card--success">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    />
+
+                    <path
+                      d="M8 12L10.7 14.7L16.5 9"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                </div>
+
+
+                <span class="stat-card__meta">
+                  Hoàn thành
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="statCompletedBookings">
+                  0
+                </strong>
+
+                <span>
+                  Lịch đã hoàn thành
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <!-- AVERAGE -->
+            <article class="stat-card stat-card--warning">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M5 19V12M12 19V5M19 19V9"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+
+                    <path
+                      d="M3 19H21"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+
+                </div>
+
+
+                <span class="stat-card__meta">
+                  Trung bình
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="statAvgRevenue">
+                  0 đ
+                </strong>
+
+                <span>
+                  Doanh thu trung bình/lịch
+                </span>
+
+              </div>
+
+            </article>
+
+
+            <!-- GROWTH -->
+            <article class="stat-card stat-card--danger">
+
+              <div class="stat-card__top">
+
+                <div class="stat-card__icon">
+
+                  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 17L9 12L13 15L20 7"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+
+                    <path
+                      d="M15 7H20V12"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                </div>
+
+
+                <span class="stat-card__meta">
+                  So sánh kỳ
+                </span>
+
+              </div>
+
+
+              <div class="stat-card__info">
+
+                <strong id="statGrowth">
+                  0%
+                </strong>
+
+                <span>
+                  Tăng trưởng
+                </span>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REVENUE CHART
+             ================================================= -->
+        <section class="admin-section">
+
+          <div class="card card--pad admin-report-card">
+
+            <div class="card__head admin-report-card__head">
+
+              <div class="admin-report-card__title">
+
+                <span class="admin-report-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 18L9 13L13 16L20 8"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+
+                    <path
+                      d="M15 8H20V13"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+
+
+                <div>
+                  <span class="admin-report-card__eyebrow">
+                    Biến động
+                  </span>
+
+                  <h2 class="card__title">
+                    Doanh thu theo ngày
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div
+                class="chart-tabs"
+                role="tablist"
+                aria-label="Kiểu hiển thị biểu đồ"
+              >
+
+                <button
+                  type="button"
+                  class="chart-tab active"
+                  data-type="day"
+                >
+                  Ngày
+                </button>
+
+                <button
+                  type="button"
+                  class="chart-tab"
+                  data-type="week"
+                >
+                  Tuần
+                </button>
+
+                <button
+                  type="button"
+                  class="chart-tab"
+                  data-type="month"
+                >
+                  Tháng
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div class="admin-chart-area">
+
+              <div
+                class="chart-bars chart-bars--tall"
+                id="chartRevenueByDay"
+                aria-label="Biểu đồ doanh thu theo thời gian"
+              >
+                <!-- JS render -->
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SPECIALTY + PAYMENT
+             ================================================= -->
+        <section class="admin-section">
+
+          <div class="grid grid--2">
+
+            <!-- SPECIALTY -->
+            <div class="card card--pad admin-report-card">
+
+              <div class="card__head admin-report-card__head">
+
+                <div class="admin-report-card__title">
+
+                  <span class="admin-report-card__icon">
+
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M9 3H15V9H21V15H15V21H9V15H3V9H9V3Z"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                  </span>
+
+
+                  <div>
+                    <span class="admin-report-card__eyebrow">
+                      Chuyên môn
+                    </span>
+
+                    <h2 class="card__title">
+                      Doanh thu theo chuyên khoa
+                    </h2>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="chart-horizontal"
+                id="chartBySpecialty"
+                aria-label="Doanh thu theo chuyên khoa"
+              >
+                <!-- JS render -->
+              </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+            <div class="card card--pad admin-report-card">
+
+              <div class="card__head admin-report-card__head">
+
+                <div class="admin-report-card__title">
+
+                  <span class="admin-report-card__icon">
+
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="14"
+                        rx="2"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                      />
+
+                      <path
+                        d="M3 10H21M7 15H10"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+
+                  </span>
+
+
+                  <div>
+                    <span class="admin-report-card__eyebrow">
+                      Thanh toán
+                    </span>
+
+                    <h2 class="card__title">
+                      Doanh thu theo phương thức
+                    </h2>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="chart-horizontal"
+                id="chartByPayment"
+                aria-label="Doanh thu theo phương thức thanh toán"
+              >
+                <!-- JS render -->
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DETAIL TABLE
+             ================================================= -->
+        <section class="admin-section">
+
+          <div class="card card--pad admin-report-card">
+
+            <div class="card__head admin-report-card__head">
+
+              <div class="admin-report-card__title">
+
+                <span class="admin-report-card__icon">
+
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect
+                      x="4"
+                      y="3"
+                      width="16"
+                      height="18"
+                      rx="2"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                    />
+
+                    <path
+                      d="M8 8H16M8 12H16M8 16H13"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+
+                </span>
+
+
+                <div>
+                  <span class="admin-report-card__eyebrow">
+                    Chi tiết
+                  </span>
+
+                  <h2 class="card__title">
+                    Bảng doanh thu
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <button
+                type="button"
+                class="btn btn--outline btn--sm"
+                onclick="exportReport()"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 3V15M7 10L12 15L17 10"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+
+                  <path
+                    d="M5 19H19"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+                Xuất Excel
+              </button>
+
+            </div>
+
+
+            <div class="table-wrap admin-report-table-wrap">
+
+              <table class="table admin-report-table">
+
+                <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>Ngày</th>
+                    <th>Số lịch khám</th>
+                    <th>Doanh thu</th>
+                    <th>Trung bình/lịch</th>
+                    <th>Tỷ lệ</th>
+                  </tr>
+                </thead>
+
+
+                <tbody id="revenueTableBody">
+                  <!-- JS render -->
+                </tbody>
+
+
+                <tfoot>
+
+                  <tr class="table__total-row">
+
+                    <td colspan="2">
+                      <strong>TỔNG CỘNG</strong>
+                    </td>
+
+                    <td>
+                      <strong id="totalBookings">
+                        0
+                      </strong>
+                    </td>
+
+                    <td>
+                      <strong
+                        id="totalRevenue"
+                        class="text-primary"
+                      >
+                        0 đ
+                      </strong>
+                    </td>
+
+                    <td colspan="2"></td>
+
+                  </tr>
+
+                </tfoot>
+
+              </table>
+
+            </div>
+
+
+            <!-- EMPTY REPORT -->
+            <div
+              class="admin-report-empty"
+              id="revenueEmptyState"
+              style="display: none;"
+            >
+
+              <div class="admin-report-empty__icon">
+
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect
+                    x="4"
+                    y="3"
+                    width="16"
+                    height="18"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+
+                  <path
+                    d="M8 8H16M8 12H14"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  />
+
+                  <path
+                    d="M9 17H15"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+              </div>
+
+              <h3>
+                Chưa có dữ liệu doanh thu
+              </h3>
+
+              <p>
+                Không có lịch khám hoàn thành trong khoảng thời gian đang chọn.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+
+      <!-- =====================================================
+           FOOTER
+           ===================================================== -->
+      <footer class="admin-footer">
+        <p>© 2026 MediCare Admin Panel.</p>
+      </footer>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       SCRIPTS
+       ========================================================= -->
+
+  <!-- Core -->
+  <script src="../../js/core/config.js"></script>
+  <script src="../../js/core/storage.js"></script>
+  <script src="../../js/core/utils.js"></script>
+  <script src="../../js/core/validator.js"></script>
+
+  <!-- Data -->
+  <script src="../../js/data/specialties.js"></script>
+  <script src="../../js/data/doctors.js"></script>
+  <script src="../../js/data/seed.js"></script>
+
+  <!-- Services -->
+  <script src="../../js/services/auth.service.js"></script>
+  <script src="../../js/services/doctor.service.js"></script>
+  <script src="../../js/services/booking.service.js"></script>
+  <script src="../../js/services/user.service.js"></script>
+
+  <!-- Components -->
+  <script src="../../js/components/header.js"></script>
+  <script src="../../js/components/footer.js"></script>
+  <script src="../../js/components/sidebar.js"></script>
+  <script src="../../js/components/toast.js"></script>
+  <script src="../../js/components/modal.js"></script>
+
+  <!-- Page -->
+  <script src="../../js/pages/admin.js"></script>
+
+  <!-- App -->
+  <script src="../../js/app.js"></script>
+
+</body>
+</html>
