@@ -1,0 +1,52 @@
+/* ============================================================
+   MAIN CSS
+   File gốc — import tất cả CSS con theo đúng thứ tự
+   Chỉ cần link file này trong mọi trang HTML:
+   <link rel="stylesheet" href="[path]/css/main.css">
+   ============================================================ */
+
+/* ============================================================
+   1. BASE — Nền tảng
+   ============================================================ */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/typography.css');
+
+/* ============================================================
+   2. COMPONENTS — Thành phần tái sử dụng
+   ============================================================ */
+@import url('./components/button.css');
+@import url('./components/card.css');
+@import url('./components/form.css');
+@import url('./components/table.css');
+@import url('./components/modal.css');
+@import url('./components/alert.css');
+@import url('./components/badge.css');
+@import url('./components/pagination.css');
+
+/* ============================================================
+   3. LAYOUT — Khung trang
+   ============================================================ */
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+@import url('./layout/sidebar.css');
+@import url('./layout/grid.css');
+
+/* ============================================================
+   4. PAGES — Style riêng từng trang
+   ============================================================ */
+@import url('./pages/home.css');
+@import url('./pages/auth.css');
+@import url('./pages/doctors.css');
+@import url('./pages/booking.css');
+@import url('./pages/profile.css');
+@import url('./pages/admin.css');
+@import url('./pages/faq.css');
+@import url('./pages/contact.css');
+@import url('./pages/about.css');
+
+/* ============================================================
+   5. UTILS — Tiện ích & hiệu ứng (import cuối để override)
+   ============================================================ */
+@import url('./utils/helpers.css');
+@import url('./utils/animations.css');

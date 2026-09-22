@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Quản lý và theo dõi lịch sử đặt lịch khám tại MediCare."
+  >
+
+  <meta
+    name="theme-color"
+    content="#0f766e"
+  >
+
+  <title>Lịch sử đặt lịch – MediCare</title>
+
+  <link
+    rel="icon"
+    href="../../assets/images/logo/favicon.ico"
+  >
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Main CSS -->
+  <link
+    rel="stylesheet"
+    href="../../css/main.css"
+  >
+</head>
+
+<body>
+
+  <!-- ======================================================
+       HEADER
+       ====================================================== -->
+
+  <header
+    class="header"
+    id="header"
+  ></header>
+
+
+  <!-- ======================================================
+       MAIN
+       ====================================================== -->
+
+  <main class="booking-history-page">
+
+
+    <!-- ====================================================
+         PAGE HEADER
+         ==================================================== -->
+
+    <section class="booking-history-hero">
+
+      <div
+        class="booking-history-hero__background"
+        aria-hidden="true"
+      >
+        <span class="booking-history-hero__glow booking-history-hero__glow--one"></span>
+        <span class="booking-history-hero__glow booking-history-hero__glow--two"></span>
+        <span class="booking-history-hero__pattern"></span>
+      </div>
+
+
+      <div class="container">
+
+        <nav
+          class="booking-history-breadcrumb"
+          aria-label="Breadcrumb"
+        >
+          <a href="../../index.html">
+            Trang chủ
+          </a>
+
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M9 18L15 12L9 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span>Lịch sử đặt lịch</span>
+        </nav>
+
+
+        <div class="booking-history-hero__layout">
+
+          <div class="booking-history-hero__content">
+
+            <span class="booking-history-hero__eyebrow">
+              Quản lý lịch khám
+            </span>
+
+            <h1 class="booking-history-hero__title">
+              Lịch sử
+              <span>đặt lịch</span>
+            </h1>
+
+            <p class="booking-history-hero__desc">
+              Theo dõi các lịch khám đã đặt, kiểm tra trạng thái
+              xác nhận và quản lý cuộc hẹn của bạn tại MediCare.
+            </p>
+
+          </div>
+
+
+          <div
+            class="booking-history-hero__visual"
+            aria-hidden="true"
+          >
+            <div class="booking-history-visual">
+
+              <div class="booking-history-visual__icon">
+
+                <svg
+                  width="38"
+                  height="38"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="16"
+                    rx="3"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+
+                  <path
+                    d="M8 3V7M16 3V7M3 10H21"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+
+                  <path
+                    d="M8 14H11M8 17H15"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+              </div>
+
+              <div>
+                <span>Trung tâm lịch khám</span>
+                <strong>Theo dõi dễ dàng</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================
+         CONTENT
+         ==================================================== -->
+
+    <section class="booking-history-content">
+
+      <div class="container">
+
+
+        <!-- =================================================
+             QUICK SUMMARY
+             JS không bắt buộc phải render các số này.
+             ================================================= -->
+
+        <div class="booking-history-summary">
+
+          <article class="booking-history-stat">
+
+            <div class="booking-history-stat__icon">
+
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="16"
+                  rx="3"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <path
+                  d="M8 3V7M16 3V7M3 10H21"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </div>
+
+            <div>
+              <span>Tổng lịch khám</span>
+              <strong id="historyTotalCount">—</strong>
+            </div>
+
+          </article>
+
+
+          <article class="booking-history-stat">
+
+            <div class="booking-history-stat__icon booking-history-stat__icon--pending">
+
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <path
+                  d="M12 7V12L15 14"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+            </div>
+
+            <div>
+              <span>Chờ xác nhận</span>
+              <strong id="historyPendingCount">—</strong>
+            </div>
+
+          </article>
+
+
+          <article class="booking-history-stat">
+
+            <div class="booking-history-stat__icon booking-history-stat__icon--confirmed">
+
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <path
+                  d="M8 12L11 15L16 9"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+            </div>
+
+            <div>
+              <span>Đã xác nhận</span>
+              <strong id="historyConfirmedCount">—</strong>
+            </div>
+
+          </article>
+
+
+          <article class="booking-history-stat">
+
+            <div class="booking-history-stat__icon booking-history-stat__icon--completed">
+
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 3L19 6V11C19 15.4183 16.134 19.5 12 21C7.866 19.5 5 15.4183 5 11V6L12 3Z"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M9 12L11 14L15 10"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+            </div>
+
+            <div>
+              <span>Đã khám</span>
+              <strong id="historyCompletedCount">—</strong>
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTROL PANEL
+             ================================================= -->
+
+        <div class="booking-history-panel">
+
+
+          <!-- Header -->
+          <div class="booking-history-panel__header">
+
+            <div>
+              <span class="booking-history-panel__eyebrow">
+                Danh sách cuộc hẹn
+              </span>
+
+              <h2 class="booking-history-panel__title">
+                Lịch khám của bạn
+              </h2>
+            </div>
+
+
+            <a
+              href="../doctors/list.html"
+              class="btn btn--primary"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5V19M5 12H19"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Đặt lịch mới
+            </a>
+
+          </div>
+
+
+          <!-- Toolbar -->
+          <div class="booking-history-toolbar">
+
+
+            <!-- Tabs -->
+            <div
+              class="booking-history-tabs"
+              role="tablist"
+              aria-label="Lọc lịch khám theo trạng thái"
+            >
+
+              <button
+                type="button"
+                class="tab-btn active"
+                data-status="all"
+                role="tab"
+                aria-selected="true"
+              >
+                Tất cả
+              </button>
+
+              <button
+                type="button"
+                class="tab-btn"
+                data-status="pending"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="tab-btn__dot tab-btn__dot--pending"></span>
+                Chờ xác nhận
+              </button>
+
+              <button
+                type="button"
+                class="tab-btn"
+                data-status="confirmed"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="tab-btn__dot tab-btn__dot--confirmed"></span>
+                Đã xác nhận
+              </button>
+
+              <button
+                type="button"
+                class="tab-btn"
+                data-status="completed"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="tab-btn__dot tab-btn__dot--completed"></span>
+                Đã khám
+              </button>
+
+              <button
+                type="button"
+                class="tab-btn"
+                data-status="cancelled"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="tab-btn__dot tab-btn__dot--cancelled"></span>
+                Đã hủy
+              </button>
+
+            </div>
+
+
+            <!-- Search -->
+            <div class="booking-history-search">
+
+              <svg
+                class="booking-history-search__icon"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="7"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <path
+                  d="M20 20L16 16"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              <input
+                type="search"
+                id="historySearch"
+                autocomplete="off"
+                aria-label="Tìm lịch khám"
+                placeholder="Tìm bác sĩ, chuyên khoa, mã lịch..."
+              >
+
+              <button
+                type="button"
+                class="booking-history-search__clear"
+                id="historySearchClear"
+                aria-label="Xóa tìm kiếm"
+                hidden
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6 6L18 18M18 6L6 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- Result -->
+          <div class="booking-history-result">
+
+            <p
+              class="result-count"
+              id="resultCount"
+              aria-live="polite"
+            ></p>
+
+            <div class="booking-history-result__legend">
+
+              <span>
+                <i class="status-dot status-dot--pending"></i>
+                Chờ xác nhận
+              </span>
+
+              <span>
+                <i class="status-dot status-dot--confirmed"></i>
+                Đã xác nhận
+              </span>
+
+              <span>
+                <i class="status-dot status-dot--completed"></i>
+                Hoàn thành
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               TABLE
+               =============================================== -->
+
+          <div
+            class="booking-history-table-wrap"
+            id="historyTableWrap"
+          >
+
+            <div class="booking-history-table-scroll">
+
+              <table class="booking-history-table">
+
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      Mã lịch
+                    </th>
+
+                    <th scope="col">
+                      Bác sĩ
+                    </th>
+
+                    <th scope="col">
+                      Chuyên khoa
+                    </th>
+
+                    <th scope="col">
+                      Ngày & giờ
+                    </th>
+
+                    <th scope="col">
+                      Bệnh nhân
+                    </th>
+
+                    <th scope="col">
+                      Phí khám
+                    </th>
+
+                    <th scope="col">
+                      Trạng thái
+                    </th>
+
+                    <th
+                      scope="col"
+                      class="booking-history-table__action-head"
+                    >
+                      Hành động
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody id="historyBody">
+                  <!-- JS render -->
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               EMPTY STATE
+               =============================================== -->
+
+          <div
+            class="empty-state booking-history-empty"
+            id="emptyState"
+            style="display: none;"
+          >
+
+            <div
+              class="booking-history-empty__icon"
+              aria-hidden="true"
+            >
+              <svg
+                width="42"
+                height="42"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="16"
+                  rx="3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M8 3V7M16 3V7M3 10H21"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M8 15H16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <span class="booking-history-empty__eyebrow">
+              Chưa có dữ liệu
+            </span>
+
+            <h3>
+              Chưa có lịch khám nào
+            </h3>
+
+            <p>
+              Bạn chưa có lịch khám phù hợp với bộ lọc hiện tại.
+              Hãy đặt lịch với bác sĩ phù hợp khi cần.
+            </p>
+
+            <a
+              href="../doctors/list.html"
+              class="btn btn--primary"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5V19M5 12H19"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Đặt lịch khám
+            </a>
+
+          </div>
+
+
+          <!-- ===============================================
+               PAGINATION
+               =============================================== -->
+
+          <nav
+            class="pagination booking-history-pagination"
+            id="pagination"
+            aria-label="Phân trang lịch khám"
+          ></nav>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================
+       DETAIL MODAL
+       ====================================================== -->
+
+  <div
+    class="modal booking-modal"
+    id="detailModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="detailModalTitle"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__overlay"
+      onclick="closeModal('detailModal')"
+    ></div>
+
+
+    <div
+      class="modal__content booking-modal__content"
+      role="document"
+    >
+
+      <div class="modal__header booking-modal__header">
+
+        <div class="booking-modal__heading">
+
+          <div class="booking-modal__heading-icon">
+
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="16"
+                rx="3"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <path
+                d="M8 3V7M16 3V7M3 10H21"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+          </div>
+
+          <div>
+            <span>Thông tin cuộc hẹn</span>
+
+            <h3
+              class="modal__title"
+              id="detailModalTitle"
+            >
+              Chi tiết lịch khám
+            </h3>
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="modal__close booking-modal__close"
+          onclick="closeModal('detailModal')"
+          aria-label="Đóng cửa sổ"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+
+      <div
+        class="modal__body booking-modal__body"
+        id="detailModalBody"
+      >
+        <!-- JS render -->
+      </div>
+
+
+      <div class="modal__footer booking-modal__footer">
+
+        <button
+          type="button"
+          class="btn btn--outline"
+          onclick="closeModal('detailModal')"
+        >
+          Đóng
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ======================================================
+       CANCEL MODAL
+       ====================================================== -->
+
+  <div
+    class="modal booking-modal"
+    id="cancelModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cancelModalTitle"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__overlay"
+      onclick="closeModal('cancelModal')"
+    ></div>
+
+
+    <div
+      class="modal__content modal__content--sm booking-modal__content booking-modal__content--sm"
+      role="document"
+    >
+
+      <div class="modal__header booking-modal__header">
+
+        <div class="booking-modal__heading">
+
+          <div class="booking-modal__heading-icon booking-modal__heading-icon--danger">
+
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 8V13M12 17V17.01"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M10.29 4.86L2.82 17.33C2.42 18 2.9 18.85 3.68 18.85H20.32C21.1 18.85 21.58 18 21.18 17.33L13.71 4.86C13.32 4.21 12.68 4.21 12 4.21C11.32 4.21 10.68 4.21 10.29 4.86Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+          </div>
+
+          <div>
+            <span>Thao tác lịch khám</span>
+
+            <h3
+              class="modal__title"
+              id="cancelModalTitle"
+            >
+              Xác nhận hủy lịch
+            </h3>
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="modal__close booking-modal__close"
+          onclick="closeModal('cancelModal')"
+          aria-label="Đóng cửa sổ"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+
+      <div class="modal__body booking-modal__body">
+
+        <div class="booking-cancel-warning">
+
+          <div
+            class="booking-cancel-warning__icon"
+            aria-hidden="true"
+          >
+            <svg
+              width="23"
+              height="23"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <path
+                d="M12 8V13M12 16V16.01"
+                stroke="currentColor"
+                stroke-width="1.9"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div>
+            <strong>
+              Bạn có chắc muốn hủy lịch khám này?
+            </strong>
+
+            <p>
+              Lịch khám sau khi hủy sẽ không thể khôi phục.
+              Nếu cần khám lại, bạn sẽ phải tạo một lịch hẹn mới.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="modal__footer booking-modal__footer">
+
+        <button
+          type="button"
+          class="btn btn--outline"
+          onclick="closeModal('cancelModal')"
+        >
+          Giữ lịch
+        </button>
+
+        <button
+          type="button"
+          class="btn btn--danger"
+          id="confirmCancelBtn"
+        >
+          Hủy lịch khám
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+
+  <footer
+    class="footer"
+    id="footer"
+  ></footer>
+
+
+  <!-- ======================================================
+       SCRIPTS
+       ====================================================== -->
+
+  <script src="../../js/core/config.js"></script>
+  <script src="../../js/core/storage.js"></script>
+  <script src="../../js/core/utils.js"></script>
+  <script src="../../js/core/validator.js"></script>
+
+  <script src="../../js/data/specialties.js"></script>
+  <script src="../../js/data/doctors.js"></script>
+  <script src="../../js/data/seed.js"></script>
+
+  <script src="../../js/services/auth.service.js"></script>
+  <script src="../../js/services/doctor.service.js"></script>
+  <script src="../../js/services/booking.service.js"></script>
+  <script src="../../js/services/user.service.js"></script>
+
+  <script src="../../js/components/header.js"></script>
+  <script src="../../js/components/footer.js"></script>
+  <script src="../../js/components/sidebar.js"></script>
+  <script src="../../js/components/toast.js"></script>
+  <script src="../../js/components/modal.js"></script>
+
+  <script src="../../js/pages/history.js"></script>
+  <script src="../../js/app.js"></script>
+
+
+<script>
+(() => {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+  const state = { status: "all", q: "", page: 1, limit: 8, cancelId: null };
+
+  const esc = v => String(v ?? "")
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#039;");
+
+  function readArray(method, key, fallback = []) {
+    try {
+      if (window.Storage && typeof Storage[method] === "function") {
+        const value = Storage[method]();
+        if (Array.isArray(value)) return value;
+      }
+      const value = JSON.parse(localStorage.getItem(key) || "[]");
+      return Array.isArray(value) ? value : fallback;
+    } catch (_) {
+      return fallback;
+    }
+  }
+
+  const bookings = () => readArray("getBookings", "medicare_bookings");
+  const doctors = () => readArray("getDoctors", "medicare_doctors", window.DOCTORS_DATA || []);
+  const specialties = () => readArray("getSpecialties", "medicare_specialties", window.SPECIALTIES_DATA || []);
+
+  function currentUser() {
+    try {
+      if (window.AuthService) {
+        if (typeof AuthService.getCurrentUser === "function") return AuthService.getCurrentUser();
+        if (typeof AuthService.currentUser === "function") return AuthService.currentUser();
+      }
+      if (window.Storage && typeof Storage.getCurrentUser === "function") return Storage.getCurrentUser();
+      return JSON.parse(localStorage.getItem("medicare_current_user") || "null");
+    } catch (_) { return null; }
+  }
+
+  function normalizeStatus(value) {
+    const s = String(value || "").toLowerCase();
+    if (["confirmed","confirm"].includes(s)) return "confirmed";
+    if (["completed","complete","done"].includes(s)) return "completed";
+    if (["cancelled","canceled","cancel"].includes(s)) return "cancelled";
+    return "pending";
+  }
+
+  function doctorOf(b) {
+    const id = b.doctorId ?? b.doctor_id ?? b.doctor?.id;
+    return doctors().find(d => String(d.id) === String(id)) || b.doctor || {};
+  }
+
+  function specialtyOf(b, d) {
+    if (b.specialtyName) return b.specialtyName;
+    if (d.specialtyName) return d.specialtyName;
+    const id = String(d.specialtyId ?? d.specialty_id ?? d.specialty?.id ?? d.specialty ?? b.specialtyId ?? "");
+    const s = specialties().find(x => [x.id,x.slug,x.name].map(v => String(v ?? "")).includes(id));
+    return s?.name || (typeof d.specialty === "string" ? d.specialty : "") || "Chưa cập nhật";
+  }
+
+  const doctorName = (b,d) => b.doctorName || d.name || d.fullName || "Chưa cập nhật";
+  const patientName = b => b.patientName || b.name || b.patient?.name || currentUser()?.name || "Chưa cập nhật";
+  const bookingCode = b => String(b.code || b.bookingCode || b.id || "—");
+  const bookingDate = b => b.date || b.bookingDate || b.appointmentDate || "";
+  const bookingTime = b => b.time || b.bookingTime || b.appointmentTime || "";
+  const fee = (b,d) => Number(String(b.fee ?? b.price ?? b.amount ?? d.price ?? d.fee ?? 0).replace(/[^\d.-]/g,"")) || 0;
+
+  function formatDate(v) {
+    if (!v) return "—";
+    const raw = String(v);
+    const d = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? new Date(raw + "T00:00:00") : new Date(raw);
+    return Number.isNaN(d.getTime()) ? raw : new Intl.DateTimeFormat("vi-VN",{day:"2-digit",month:"2-digit",year:"numeric"}).format(d);
+  }
+
+  const money = n => n ? new Intl.NumberFormat("vi-VN").format(n) + "đ" : "Liên hệ";
+
+  function userBookings() {
+    const user = currentUser();
+    const all = bookings();
+    if (!user) return all;
+    return all.filter(b => {
+      const uid = b.userId ?? b.user_id ?? b.patientId ?? b.patient?.id;
+      if (uid !== undefined && uid !== null && uid !== "") return String(uid) === String(user.id);
+      const email = b.email || b.patientEmail || b.patient?.email;
+      const phone = b.phone || b.patientPhone || b.patient?.phone;
+      return (email && user.email && String(email).toLowerCase() === String(user.email).toLowerCase()) ||
+             (phone && user.phone && String(phone) === String(user.phone));
+    });
+  }
+
+  function filtered() {
+    let list = [...userBookings()];
+    if (state.status !== "all") list = list.filter(b => normalizeStatus(b.status) === state.status);
+    const q = state.q.trim().toLowerCase();
+    if (q) list = list.filter(b => {
+      const d = doctorOf(b);
+      return [bookingCode(b), doctorName(b,d), specialtyOf(b,d), patientName(b)]
+        .some(v => String(v).toLowerCase().includes(q));
+    });
+    list.sort((a,b) => {
+      const da = new Date(`${bookingDate(a) || "1970-01-01"}T${bookingTime(a) || "00:00"}`).getTime() || 0;
+      const db = new Date(`${bookingDate(b) || "1970-01-01"}T${bookingTime(b) || "00:00"}`).getTime() || 0;
+      return db - da;
+    });
+    return list;
+  }
+
+  function statusLabel(s) {
+    return {pending:"Chờ xác nhận",confirmed:"Đã xác nhận",completed:"Đã khám",cancelled:"Đã hủy"}[s] || "Chờ xác nhận";
+  }
+
+  function statusBadge(s) {
+    return `<span class="booking-history-status booking-history-status--${s}"><i></i>${statusLabel(s)}</span>`;
+  }
+
+  const eyeIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6S18 18 12 18 2.5 12 2.5 12Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>`;
+  const cancelIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M9 9L15 15M15 9L9 15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>`;
+
+  function renderStats() {
+    const list = userBookings();
+    $("historyTotalCount").textContent = list.length;
+    $("historyPendingCount").textContent = list.filter(b => normalizeStatus(b.status)==="pending").length;
+    $("historyConfirmedCount").textContent = list.filter(b => normalizeStatus(b.status)==="confirmed").length;
+    $("historyCompletedCount").textContent = list.filter(b => normalizeStatus(b.status)==="completed").length;
+  }
+
+  function render() {
+    renderStats();
+    const list = filtered();
+    const pages = Math.max(1, Math.ceil(list.length / state.limit));
+    if (state.page > pages) state.page = pages;
+    const rows = list.slice((state.page-1)*state.limit, state.page*state.limit);
+
+    $("resultCount").textContent = list.length ? `Có ${list.length} lịch khám phù hợp` : "Không có lịch khám phù hợp";
+    $("historyTableWrap").style.display = rows.length ? "" : "none";
+    $("emptyState").style.display = rows.length ? "none" : "block";
+
+    $("historyBody").innerHTML = rows.map(b => {
+      const d = doctorOf(b), s = normalizeStatus(b.status);
+      return `<tr>
+        <td><strong>${esc(bookingCode(b))}</strong></td>
+        <td>${esc(doctorName(b,d))}</td>
+        <td>${esc(specialtyOf(b,d))}</td>
+        <td><strong>${esc(formatDate(bookingDate(b)))}</strong><small class="booking-history-time">${esc(bookingTime(b) || "—")}</small></td>
+        <td>${esc(patientName(b))}</td>
+        <td><strong>${esc(money(fee(b,d)))}</strong></td>
+        <td>${statusBadge(s)}</td>
+        <td>
+          <div class="booking-history-actions">
+            <button type="button" class="booking-history-action" data-detail="${esc(b.id)}" aria-label="Xem chi tiết">${eyeIcon}</button>
+            ${["pending","confirmed"].includes(s) ? `<button type="button" class="booking-history-action booking-history-action--danger" data-cancel="${esc(b.id)}" aria-label="Hủy lịch">${cancelIcon}</button>` : ""}
+          </div>
+        </td>
+      </tr>`;
+    }).join("");
+
+    $("historyBody").querySelectorAll("[data-detail]").forEach(btn => btn.onclick = () => showDetail(btn.dataset.detail));
+    $("historyBody").querySelectorAll("[data-cancel]").forEach(btn => btn.onclick = () => askCancel(btn.dataset.cancel));
+    renderPagination(list.length);
+  }
+
+  function renderPagination(total) {
+    const el = $("pagination");
+    const pages = Math.ceil(total/state.limit);
+    if (pages <= 1) { el.innerHTML = ""; return; }
+    el.innerHTML = Array.from({length:pages},(_,i)=>`<button type="button" class="pagination__btn ${i+1===state.page?"active":""}" data-page="${i+1}">${i+1}</button>`).join("");
+    el.querySelectorAll("[data-page]").forEach(btn => btn.onclick=()=>{state.page=Number(btn.dataset.page);render();});
+  }
+
+  function modalOpen(id) {
+    if (typeof window.openModal === "function") return openModal(id);
+    const m=$(id); if(m){m.classList.add("active");m.setAttribute("aria-hidden","false");}
+  }
+  function modalClose(id) {
+    if (typeof window.closeModal === "function") return closeModal(id);
+    const m=$(id); if(m){m.classList.remove("active");m.setAttribute("aria-hidden","true");}
+  }
+
+  function showDetail(id) {
+    const b = bookings().find(x => String(x.id) === String(id));
+    if (!b) return;
+    const d=doctorOf(b), s=normalizeStatus(b.status);
+    $("detailModalBody").innerHTML = `
+      <div class="booking-detail-grid">
+        <div><span>Mã lịch</span><strong>${esc(bookingCode(b))}</strong></div>
+        <div><span>Trạng thái</span>${statusBadge(s)}</div>
+        <div><span>Bác sĩ</span><strong>${esc(doctorName(b,d))}</strong></div>
+        <div><span>Chuyên khoa</span><strong>${esc(specialtyOf(b,d))}</strong></div>
+        <div><span>Ngày khám</span><strong>${esc(formatDate(bookingDate(b)))}</strong></div>
+        <div><span>Giờ khám</span><strong>${esc(bookingTime(b)||"—")}</strong></div>
+        <div><span>Bệnh nhân</span><strong>${esc(patientName(b))}</strong></div>
+        <div><span>Phí khám</span><strong>${esc(money(fee(b,d)))}</strong></div>
+        <div class="booking-detail-grid__full"><span>Lý do khám / ghi chú</span><p>${esc(b.reason || b.note || b.symptoms || "Không có ghi chú")}</p></div>
+      </div>`;
+    modalOpen("detailModal");
+  }
+
+  function askCancel(id) {
+    state.cancelId=id;
+    modalOpen("cancelModal");
+  }
+
+  function saveBookings(list) {
+    try {
+      if (window.Storage && typeof Storage.setBookings === "function") Storage.setBookings(list);
+      else localStorage.setItem("medicare_bookings",JSON.stringify(list));
+      return true;
+    } catch (_) { return false; }
+  }
+
+  function cancelBooking() {
+    if (!state.cancelId) return;
+    const list=bookings();
+    const index=list.findIndex(b=>String(b.id)===String(state.cancelId));
+    if(index<0) return;
+
+    list[index] = {...list[index], status:"cancelled", cancelledAt:new Date().toISOString(), updatedAt:new Date().toISOString()};
+    if(saveBookings(list)){
+      if(window.toast?.success) toast.success("Đã hủy lịch khám.");
+      modalClose("cancelModal");
+      state.cancelId=null;
+      render();
+    } else if(window.toast?.error) toast.error("Không thể lưu thay đổi.");
+  }
+
+  function init() {
+    document.querySelectorAll(".tab-btn[data-status]").forEach(btn => {
+      btn.addEventListener("click",()=>{
+        document.querySelectorAll(".tab-btn[data-status]").forEach(x=>{
+          x.classList.remove("active"); x.setAttribute("aria-selected","false");
+        });
+        btn.classList.add("active"); btn.setAttribute("aria-selected","true");
+        state.status=btn.dataset.status; state.page=1; render();
+      });
+    });
+
+    let timer;
+    $("historySearch")?.addEventListener("input",e=>{
+      clearTimeout(timer);
+      timer=setTimeout(()=>{
+        state.q=e.target.value;
+        state.page=1;
+        $("historySearchClear").hidden=!state.q;
+        render();
+      },150);
+    });
+
+    $("historySearchClear")?.addEventListener("click",()=>{
+      state.q=""; $("historySearch").value=""; $("historySearchClear").hidden=true; state.page=1; render();
+    });
+
+    $("confirmCancelBtn")?.addEventListener("click",cancelBooking);
+    render();
+  }
+
+  window.showBookingDetail = showDetail;
+  window.askCancelBooking = askCancel;
+
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init,{once:true});
+  else init();
+})();
+</script>
+
+<style>
+.booking-history-time{display:block;margin-top:4px;color:#64748b}
+.booking-history-status{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;white-space:nowrap}
+.booking-history-status i{width:8px;height:8px;border-radius:50%;background:#94a3b8}
+.booking-history-status--pending i{background:#d97706}
+.booking-history-status--confirmed i{background:#0284c7}
+.booking-history-status--completed i{background:#0f766e}
+.booking-history-status--cancelled i{background:#dc2626}
+.booking-history-actions{display:flex;justify-content:flex-end;gap:7px}
+.booking-history-action{width:34px;height:34px;display:grid;place-items:center;border:1px solid #dbe7e5;background:#fff;color:#0f766e;border-radius:9px;cursor:pointer}
+.booking-history-action--danger{color:#b91c1c;border-color:#fecaca}
+.booking-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.booking-detail-grid>div{padding:14px;border:1px solid #e2ecea;border-radius:12px;background:#f8fbfb}
+.booking-detail-grid span{display:block;margin-bottom:5px;color:#64748b;font-size:12px}
+.booking-detail-grid strong{color:#0f172a}
+.booking-detail-grid__full{grid-column:1/-1}
+.booking-detail-grid__full p{margin:0;color:#334155}
+@media(max-width:640px){.booking-detail-grid{grid-template-columns:1fr}}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,1528 @@
+/* ============================================================
+   MEDICARE — GRID & LAYOUT SYSTEM
+   Container / Section / Grid / Flex / Page Layout / Admin
+   ============================================================ */
+
+
+/* ============================================================
+   01. CONTAINER
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width, 1200px);
+
+  margin-inline: auto;
+  padding-inline: var(--container-padding, 20px);
+}
+
+.container--sm {
+  max-width: var(--container-width-sm, 900px);
+}
+
+.container--lg {
+  max-width: var(--container-width-lg, 1400px);
+}
+
+.container--fluid {
+  max-width: none;
+}
+
+.container--narrow {
+  max-width: 760px;
+}
+
+
+/* ============================================================
+   02. SECTION
+   ============================================================ */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding-block: var(--space-16, 64px);
+}
+
+.section--sm {
+  padding-block: var(--space-10, 40px);
+}
+
+.section--lg {
+  padding-block: var(--space-20, 80px);
+}
+
+.section--xl {
+  padding-block: var(--space-24, 96px);
+}
+
+.section--white {
+  background: var(--color-bg-3, #ffffff);
+}
+
+.section--bg {
+  background: var(--color-bg-2, #f8fbfb);
+}
+
+.section--primary {
+  background: var(--color-primary-lighter, #ecfdf5);
+}
+
+.section--soft {
+  background: var(--gradient-primary-soft);
+}
+
+.section--dark {
+  color: #ffffff;
+  background: var(--color-primary-deep, #064e49);
+}
+
+
+/* ============================================================
+   03. SECTION HEADER
+   ============================================================ */
+
+.section__head {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 0 auto var(--space-10, 40px);
+
+  text-align: center;
+}
+
+.section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 10px;
+
+  color: var(--color-primary, #0f766e);
+
+  font-size: var(--font-size-xs, 12px);
+  font-weight: var(--font-weight-bold, 700);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section__eyebrow::before {
+  content: "";
+
+  width: 18px;
+  height: 2px;
+
+  background: currentColor;
+
+  border-radius: var(--radius-full, 999px);
+}
+
+.section__title {
+  margin: 0 0 var(--space-3, 12px);
+
+  color: var(--color-dark, #0f172a);
+
+  font-size: var(--font-size-2xl, 28px);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-tight, 1.2);
+
+  letter-spacing: var(--letter-spacing-tight, -0.025em);
+}
+
+.section__desc {
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  color: var(--color-gray, #64748b);
+
+  font-size: var(--font-size-base, 16px);
+  line-height: var(--line-height-relaxed, 1.65);
+}
+
+
+/* ============================================================
+   04. LEFT ALIGNED SECTION HEADER
+   ============================================================ */
+
+.section__head--left {
+  max-width: none;
+
+  margin-inline: 0;
+
+  text-align: left;
+}
+
+.section__head--left .section__desc {
+  margin-inline: 0;
+}
+
+
+/* ============================================================
+   05. BASE GRID
+   ============================================================ */
+
+.grid {
+  display: grid;
+
+  width: 100%;
+
+  gap: var(--space-6, 24px);
+}
+
+
+/* ============================================================
+   06. FIXED GRID COLUMNS
+   ============================================================ */
+
+.grid--1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid--6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+
+/* ============================================================
+   07. AUTO RESPONSIVE GRID
+   ============================================================ */
+
+.grid--auto-2 {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(320px, 100%), 1fr)
+    );
+}
+
+.grid--auto-3 {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(270px, 100%), 1fr)
+    );
+}
+
+.grid--auto-4 {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(220px, 100%), 1fr)
+    );
+}
+
+.grid--auto-5 {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(180px, 100%), 1fr)
+    );
+}
+
+
+/* ============================================================
+   08. GRID GAP
+   ============================================================ */
+
+.grid--gap-xs {
+  gap: var(--space-2, 8px);
+}
+
+.grid--gap-sm {
+  gap: var(--space-4, 16px);
+}
+
+.grid--gap-md {
+  gap: var(--space-6, 24px);
+}
+
+.grid--gap-lg {
+  gap: var(--space-8, 32px);
+}
+
+.grid--gap-xl {
+  gap: var(--space-10, 40px);
+}
+
+.grid--gap-none {
+  gap: 0;
+}
+
+
+/* ============================================================
+   09. GRID ALIGNMENT
+   ============================================================ */
+
+.grid--center {
+  align-items: center;
+}
+
+.grid--start {
+  align-items: start;
+}
+
+.grid--end {
+  align-items: end;
+}
+
+.grid--stretch {
+  align-items: stretch;
+}
+
+
+/* ============================================================
+   10. GRID JUSTIFY
+   ============================================================ */
+
+.grid--justify-center {
+  justify-items: center;
+}
+
+.grid--justify-start {
+  justify-items: start;
+}
+
+.grid--justify-end {
+  justify-items: end;
+}
+
+.grid--justify-stretch {
+  justify-items: stretch;
+}
+
+
+/* ============================================================
+   11. GRID PADDING
+   ============================================================ */
+
+.grid--padding {
+  padding: var(--space-6, 24px);
+}
+
+.grid--padding-sm {
+  padding: var(--space-4, 16px);
+}
+
+.grid--padding-lg {
+  padding: var(--space-8, 32px);
+}
+
+
+/* ============================================================
+   12. GRID COLUMN SPAN
+   ============================================================ */
+
+.col-span-1 {
+  grid-column: span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3;
+}
+
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
+
+/* ============================================================
+   13. FLEX BASE
+   ============================================================ */
+
+.flex {
+  display: flex;
+}
+
+.flex--inline {
+  display: inline-flex;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.flex--nowrap {
+  flex-wrap: nowrap;
+}
+
+
+/* ============================================================
+   14. FLEX ALIGNMENT
+   ============================================================ */
+
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex--around {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex--evenly {
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.flex--start {
+  align-items: flex-start;
+}
+
+.flex--end {
+  align-items: flex-end;
+}
+
+.flex--align-center {
+  align-items: center;
+}
+
+.flex--align-start {
+  align-items: flex-start;
+}
+
+.flex--align-end {
+  align-items: flex-end;
+}
+
+.flex--justify-start {
+  justify-content: flex-start;
+}
+
+.flex--justify-center {
+  justify-content: center;
+}
+
+.flex--justify-end {
+  justify-content: flex-end;
+}
+
+
+/* ============================================================
+   15. FLEX GAP
+   ============================================================ */
+
+.flex--gap-1 {
+  gap: var(--space-1, 4px);
+}
+
+.flex--gap-2 {
+  gap: var(--space-2, 8px);
+}
+
+.flex--gap-3 {
+  gap: var(--space-3, 12px);
+}
+
+.flex--gap-4 {
+  gap: var(--space-4, 16px);
+}
+
+.flex--gap-5 {
+  gap: var(--space-5, 20px);
+}
+
+.flex--gap-6 {
+  gap: var(--space-6, 24px);
+}
+
+.flex--gap-8 {
+  gap: var(--space-8, 32px);
+}
+
+
+/* ============================================================
+   16. FLEX ITEMS
+   ============================================================ */
+
+.flex-1 {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.flex-none {
+  flex: none;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   17. BOOKING LAYOUT
+   ============================================================ */
+
+.booking-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, 340px);
+
+  align-items: start;
+
+  gap: var(--space-6, 24px);
+}
+
+.booking-main {
+  min-width: 0;
+}
+
+.booking-sidebar {
+  position: sticky;
+  top: calc(var(--header-height, 72px) + 20px);
+
+  min-width: 0;
+}
+
+
+/* ============================================================
+   18. PROFILE LAYOUT
+   ============================================================ */
+
+.profile-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 280px)
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: var(--space-6, 24px);
+}
+
+.profile-main {
+  min-width: 0;
+}
+
+.profile-sidebar {
+  min-width: 0;
+}
+
+
+/* ============================================================
+   19. SEARCH / DOCTORS LAYOUT
+   ============================================================ */
+
+.search-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 280px)
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: var(--space-6, 24px);
+}
+
+.search-filters {
+  position: sticky;
+  top: calc(var(--header-height, 72px) + 20px);
+
+  min-width: 0;
+}
+
+.search-results {
+  min-width: 0;
+}
+
+
+/* ============================================================
+   20. ADMIN FORM LAYOUT
+   Scoped để không ảnh hưởng public
+   ============================================================ */
+
+.admin-body .admin-form-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(300px, 340px);
+
+  align-items: start;
+
+  gap: var(--space-6, 24px);
+}
+
+.admin-body .admin-form-main {
+  min-width: 0;
+}
+
+.admin-body .admin-form-side {
+  position: sticky;
+
+  top: calc(
+    var(--admin-topbar-height, 68px) +
+    var(--space-5, 20px)
+  );
+
+  min-width: 0;
+}
+
+
+/* ============================================================
+   21. ADMIN DETAIL LAYOUT
+   ============================================================ */
+
+.admin-body .admin-detail-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 360px);
+
+  align-items: start;
+
+  gap: var(--space-6, 24px);
+}
+
+.admin-body .admin-detail-main {
+  min-width: 0;
+}
+
+.admin-body .admin-detail-side {
+  position: sticky;
+
+  top: calc(
+    var(--admin-topbar-height, 68px) +
+    var(--space-5, 20px)
+  );
+
+  min-width: 0;
+}
+
+
+/* ============================================================
+   22. CONTACT LAYOUT
+   ============================================================ */
+
+.contact-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 380px);
+
+  align-items: start;
+
+  gap: var(--space-8, 32px);
+}
+
+
+/* ============================================================
+   23. FAQ LAYOUT
+   ============================================================ */
+
+.faq-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 260px)
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: var(--space-6, 24px);
+}
+
+
+/* ============================================================
+   24. ABOUT INTRO
+   ============================================================ */
+
+.about-intro {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  align-items: center;
+
+  gap: var(--space-10, 40px);
+}
+
+
+/* ============================================================
+   25. STATS GRID
+   ============================================================ */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(210px, 100%), 1fr)
+    );
+
+  gap: var(--space-5, 20px);
+}
+
+.status-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(170px, 100%), 1fr)
+    );
+
+  gap: var(--space-4, 16px);
+}
+
+
+/* ============================================================
+   26. ADMIN CONTENT
+   ============================================================ */
+
+.admin-body .admin-content {
+  flex: 1 1 auto;
+
+  width: 100%;
+  max-width: var(--admin-content-max-width, 1600px);
+
+  margin-inline: auto;
+
+  padding: var(--admin-content-padding, 28px);
+
+  overflow-x: clip;
+}
+
+
+/* ============================================================
+   27. ADMIN SECTION
+   ============================================================ */
+
+.admin-body .admin-section {
+  width: 100%;
+
+  margin-bottom: var(--space-6, 24px);
+}
+
+.admin-body .admin-section:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   28. ADMIN PAGE HEADER
+   ============================================================ */
+
+.admin-body .admin-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 100%;
+
+  gap: var(--space-5, 20px);
+
+  margin-bottom: var(--space-6, 24px);
+}
+
+.admin-body .admin-page-header > div:first-child {
+  flex: 1 1 auto;
+
+  min-width: 0;
+}
+
+
+/* ============================================================
+   29. ADMIN PAGE EYEBROW
+   ============================================================ */
+
+.admin-body .admin-page-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 7px;
+
+  color: var(--color-primary, #0f766e);
+
+  font-size: 11px;
+  font-weight: var(--font-weight-bold, 700);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-body .admin-page-header__eyebrow::before {
+  content: "";
+
+  width: 16px;
+  height: 2px;
+
+  background: currentColor;
+
+  border-radius: var(--radius-full, 999px);
+}
+
+
+/* ============================================================
+   30. ADMIN PAGE TITLE
+   ============================================================ */
+
+.admin-body .admin-page-header__title {
+  margin: 0 0 5px;
+
+  color: var(--color-dark, #0f172a);
+
+  font-size: clamp(24px, 2vw, 30px);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+.admin-body .admin-page-header__desc {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: var(--color-gray, #64748b);
+
+  font-size: var(--font-size-sm, 14px);
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   31. ADMIN PAGE ACTIONS
+   ============================================================ */
+
+.admin-body .admin-page-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  flex: 0 0 auto;
+
+  gap: var(--space-2, 8px);
+
+  flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   32. PUBLIC PAGE HEADER
+   ============================================================ */
+
+.page-header {
+  position: relative;
+
+  overflow: hidden;
+
+  padding-block: var(--space-10, 40px);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-primary-lighter, #ecfdf5) 0%,
+      var(--color-bg-3, #ffffff) 72%
+    );
+
+  border-bottom: 1px solid var(--color-border-light, #edf4f2);
+}
+
+.page-header::after {
+  content: "";
+
+  position: absolute;
+  top: -90px;
+  right: -60px;
+
+  width: 220px;
+  height: 220px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(20, 184, 166, 0.1),
+      transparent 68%
+    );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.page-header .container {
+  position: relative;
+
+  z-index: 1;
+}
+
+.page-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 8px;
+
+  color: var(--color-primary, #0f766e);
+
+  font-size: var(--font-size-xs, 12px);
+  font-weight: var(--font-weight-bold, 700);
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-header__title {
+  margin: 0 0 var(--space-2, 8px);
+
+  color: var(--color-dark, #0f172a);
+
+  font-size: var(--font-size-2xl, 28px);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: 1.2;
+
+  letter-spacing: var(--letter-spacing-tight, -0.025em);
+}
+
+.page-header__desc {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: var(--color-gray, #64748b);
+
+  font-size: var(--font-size-base, 16px);
+  line-height: var(--line-height-relaxed, 1.65);
+}
+
+
+/* ============================================================
+   33. BREADCRUMB
+   ============================================================ */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  min-width: 0;
+
+  margin: 0 0 var(--space-3, 12px);
+
+  color: var(--color-gray, #64748b);
+
+  font-size: var(--font-size-sm, 14px);
+  line-height: 1.4;
+
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--color-gray, #64748b);
+
+  font-weight: var(--font-weight-medium, 500);
+
+  transition: color var(--transition-fast, 0.16s ease);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primary, #0f766e);
+}
+
+.breadcrumb > span:not(:last-child) {
+  color: var(--color-gray-light, #94a3b8);
+
+  font-size: 12px;
+
+  user-select: none;
+}
+
+.breadcrumb > span:last-child {
+  color: var(--color-dark-3, #334155);
+
+  font-weight: var(--font-weight-medium, 500);
+}
+
+
+/* ============================================================
+   34. TOOLBAR
+   ============================================================ */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  gap: var(--space-4, 16px);
+
+  margin-bottom: var(--space-5, 20px);
+
+  flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   35. TOOLBAR SEARCH
+   ============================================================ */
+
+.toolbar__search {
+  flex: 1 1 280px;
+
+  min-width: min(240px, 100%);
+}
+
+.toolbar__search .form-control {
+  width: 100%;
+}
+
+
+/* ============================================================
+   36. TOOLBAR FILTERS
+   ============================================================ */
+
+.toolbar__filter {
+  display: flex;
+  align-items: center;
+
+  flex: 0 1 auto;
+
+  gap: var(--space-3, 12px);
+
+  flex-wrap: wrap;
+}
+
+.toolbar__filter .form-control {
+  width: auto;
+  min-width: 160px;
+}
+
+
+/* ============================================================
+   37. TOOLBAR ACTIONS
+   ============================================================ */
+
+.toolbar__actions {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-2, 8px);
+
+  flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   38. TOOLBAR TABS
+   ============================================================ */
+
+.toolbar__tabs {
+  display: inline-flex;
+  align-items: center;
+
+  max-width: 100%;
+
+  gap: 3px;
+
+  padding: 4px;
+
+  overflow-x: auto;
+
+  background: var(--color-bg-2, #f8fbfb);
+
+  border: 1px solid var(--color-border-light, #edf4f2);
+  border-radius: var(--radius-full, 999px);
+
+  scrollbar-width: none;
+}
+
+.toolbar__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ============================================================
+   39. TAB BUTTON
+   ============================================================ */
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  min-height: 36px;
+
+  padding: 7px 16px;
+
+  color: var(--color-gray, #64748b);
+  background: transparent;
+
+  border: 0;
+  border-radius: var(--radius-full, 999px);
+
+  font-size: var(--font-size-sm, 14px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: 1;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast, 0.16s ease),
+    background-color var(--transition-fast, 0.16s ease),
+    box-shadow var(--transition-fast, 0.16s ease);
+}
+
+.tab-btn:hover {
+  color: var(--color-primary, #0f766e);
+}
+
+.tab-btn.active,
+.tab-btn[aria-selected="true"] {
+  color: var(--color-primary-dark, #0b5f59);
+  background: var(--card-bg, #ffffff);
+
+  box-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.06);
+
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+
+/* ============================================================
+   40. RESPONSIVE — LARGE TABLET
+   ============================================================ */
+
+@media (max-width: 1200px) {
+
+  .booking-layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 310px);
+  }
+
+  .admin-body .admin-form-layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 310px);
+  }
+
+  .admin-body .admin-detail-layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(290px, 320px);
+  }
+
+  .contact-layout {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(290px, 330px);
+  }
+
+}
+
+
+/* ============================================================
+   41. RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 1024px) {
+
+  .grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid--5,
+  .grid--6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .booking-layout,
+  .profile-layout,
+  .search-layout,
+  .contact-layout,
+  .faq-layout,
+  .about-intro,
+  .admin-body .admin-form-layout,
+  .admin-body .admin-detail-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .booking-sidebar,
+  .search-filters,
+  .admin-body .admin-form-side,
+  .admin-body .admin-detail-side {
+    position: static;
+  }
+
+}
+
+
+/* ============================================================
+   42. RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  .section {
+    padding-block: var(--space-10, 40px);
+  }
+
+  .section--sm {
+    padding-block: var(--space-8, 32px);
+  }
+
+  .section--lg,
+  .section--xl {
+    padding-block: var(--space-12, 48px);
+  }
+
+  .section__head {
+    margin-bottom: var(--space-6, 24px);
+  }
+
+  .section__title {
+    font-size: var(--font-size-xl, 21px);
+  }
+
+  .grid--2,
+  .grid--3,
+  .grid--4,
+  .grid--5,
+  .grid--6 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid {
+    gap: var(--space-4, 16px);
+  }
+
+  .col-span-2,
+  .col-span-3 {
+    grid-column: span 1;
+  }
+
+  .page-header {
+    padding-block: var(--space-7, 28px);
+  }
+
+  .page-header__title {
+    font-size: var(--font-size-xl, 21px);
+  }
+
+  .page-header__desc {
+    font-size: var(--font-size-sm, 14px);
+  }
+
+  .admin-body .admin-content {
+    padding: var(--admin-content-padding, 16px);
+  }
+
+  .admin-body .admin-page-header {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: var(--space-4, 16px);
+  }
+
+  .admin-body .admin-page-header__title {
+    font-size: 23px;
+  }
+
+  .admin-body .admin-page-header__actions {
+    justify-content: flex-start;
+
+    width: 100%;
+  }
+
+  .toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+  .toolbar__search {
+    flex-basis: auto;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .toolbar__filter {
+    width: 100%;
+  }
+
+  .toolbar__filter .form-control {
+    flex: 1 1 160px;
+
+    min-width: 0;
+  }
+
+  .toolbar__actions {
+    width: 100%;
+  }
+
+  .toolbar__tabs {
+    display: flex;
+
+    width: 100%;
+
+    flex-wrap: nowrap;
+  }
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .status-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ============================================================
+   43. RESPONSIVE — SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 520px) {
+
+  .stats-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toolbar__filter {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .toolbar__filter .form-control {
+    width: 100%;
+  }
+
+  .toolbar__actions {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toolbar__actions .btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .admin-body .admin-page-header__actions {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-body .admin-page-header__actions .btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
+
+
+/* ============================================================
+   44. VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+  .status-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .breadcrumb {
+    gap: 5px;
+
+    font-size: 12px;
+  }
+
+  .tab-btn {
+    min-height: 34px;
+
+    padding-inline: 13px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* ============================================================
+   45. DARK MODE
+   ============================================================ */
+
+html.dark .section--white {
+  background: var(--color-bg-3);
+}
+
+html.dark .section--bg {
+  background: var(--color-bg-2);
+}
+
+html.dark .section--primary,
+html.dark .section--soft {
+  background: var(--gradient-primary-soft);
+}
+
+html.dark .page-header {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 118, 110, 0.15),
+      var(--color-bg) 72%
+    );
+
+  border-bottom-color: var(--color-border);
+}
+
+html.dark .toolbar__tabs {
+  background: var(--color-bg-2);
+
+  border-color: var(--color-border);
+}
+
+html.dark .tab-btn.active,
+html.dark .tab-btn[aria-selected="true"] {
+  color: var(--color-primary);
+
+  background: var(--card-bg);
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ============================================================
+   46. ACCESSIBILITY
+   ============================================================ */
+
+.tab-btn:focus-visible,
+.breadcrumb a:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.24);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   47. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .tab-btn,
+  .breadcrumb a {
+    transition: none;
+  }
+
+}
+
+
+/* ============================================================
+   48. PRINT
+   ============================================================ */
+
+@media print {
+
+  .container,
+  .container--sm,
+  .container--lg {
+    width: 100%;
+    max-width: none;
+
+    padding: 0;
+  }
+
+  .section {
+    padding-block: 20px;
+  }
+
+  .admin-body .admin-content {
+    max-width: none;
+
+    padding: 0;
+  }
+
+  .admin-body .admin-page-header__actions,
+  .toolbar {
+    display: none !important;
+  }
+
+  .admin-body .admin-form-layout,
+  .admin-body .admin-detail-layout,
+  .booking-layout,
+  .profile-layout,
+  .search-layout,
+  .contact-layout,
+  .faq-layout {
+    display: block;
+  }
+
+  .admin-body .admin-form-side,
+  .admin-body .admin-detail-side,
+  .booking-sidebar,
+  .search-filters {
+    position: static;
+  }
+
+}

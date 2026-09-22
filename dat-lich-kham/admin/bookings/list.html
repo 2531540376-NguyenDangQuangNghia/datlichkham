@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Quản lý lịch khám – MediCare Admin">
+  <meta name="theme-color" content="#0f766e">
+
+  <title>Quản lý lịch khám – MediCare Admin</title>
+
+  <link rel="icon" href="../../assets/images/logo/favicon.ico">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body class="admin-body">
+
+  <div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+    <aside
+      class="admin-sidebar"
+      id="adminSidebar"
+      aria-label="Điều hướng quản trị"
+    ></aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+    <div class="admin-main">
+
+      <!-- ===================================================
+           TOPBAR
+      ==================================================== -->
+      <header class="admin-topbar">
+
+        <div class="admin-topbar__left">
+
+          <button
+            type="button"
+            class="admin-topbar__toggle"
+            id="sidebarToggle"
+            aria-label="Mở hoặc đóng thanh điều hướng"
+            aria-controls="adminSidebar"
+          >
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M4 7H20M4 12H20M4 17H20"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+
+          <div class="admin-topbar__search">
+
+            <svg
+              class="admin-topbar__search-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+
+              <path
+                d="M16.5 16.5L21 21"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Tìm kiếm nhanh..."
+              aria-label="Tìm kiếm nhanh"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="admin-topbar__actions">
+
+          <!-- NOTIFICATIONS -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Thông báo"
+            aria-label="Thông báo"
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 15 3 16 3 16H21C21 16 18 15 18 8Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M14 20H10"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            <span class="badge-dot"></span>
+          </button>
+
+
+          <!-- MESSAGES -->
+          <button
+            type="button"
+            class="admin-topbar__icon-btn"
+            title="Tin nhắn"
+            aria-label="Tin nhắn"
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M21 12C21 16.418 16.971 20 12 20C10.72 20 9.5 19.76 8.4 19.32L3 21L4.65 16.55C3.6 15.25 3 13.68 3 12C3 7.582 7.029 4 12 4C16.971 4 21 7.582 21 12Z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+
+          <!-- USER -->
+          <div class="admin-topbar__user">
+
+            <div
+              class="admin-topbar__avatar"
+              id="topbarAvatar"
+            >
+              A
+            </div>
+
+            <div class="admin-topbar__user-info">
+              <strong id="topbarName">Admin</strong>
+              <small id="topbarRole">Quản trị viên</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           CONTENT
+      ==================================================== -->
+      <main class="admin-content">
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+        <div class="admin-page-header">
+
+          <div>
+
+            <nav
+              class="breadcrumb"
+              aria-label="Breadcrumb"
+            >
+              <a href="../dashboard.html">
+                Dashboard
+              </a>
+
+              <span>/</span>
+
+              <span aria-current="page">
+                Quản lý lịch khám
+              </span>
+            </nav>
+
+
+            <span class="admin-page-header__eyebrow">
+              Điều phối lịch khám
+            </span>
+
+            <h1 class="admin-page-header__title">
+              Quản lý lịch khám
+            </h1>
+
+            <p class="admin-page-header__desc">
+              Theo dõi, xác nhận và quản lý toàn bộ lịch khám của bệnh nhân trong hệ thống.
+            </p>
+
+          </div>
+
+
+          <div class="admin-page-header__actions">
+
+            <!-- CALENDAR -->
+            <a
+              href="calendar.html"
+              class="btn btn--outline"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="16"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+
+                <path
+                  d="M8 3V7M16 3V7M3 10H21"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M8 14H10M14 14H16M8 17H10"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Xem theo lịch
+            </a>
+
+
+            <!-- EXPORT -->
+            <button
+              type="button"
+              class="btn btn--primary"
+              onclick="exportBookings()"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 3V15M7 10L12 15L17 10"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M5 20H19"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              Xuất Excel
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             QUICK STATS
+        ================================================== -->
+        <section
+          class="admin-section"
+          aria-label="Thống kê lịch khám"
+        >
+
+          <div class="grid grid--4 stats-grid">
+
+            <!-- TOTAL -->
+            <article class="stat-card stat-card--primary">
+
+              <div class="stat-card__icon">
+
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect
+                    x="5"
+                    y="4"
+                    width="14"
+                    height="17"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+
+                  <path
+                    d="M9 4.5V3H15V4.5"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  />
+
+                  <path
+                    d="M9 9H15M9 13H15M9 17H13"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+              </div>
+
+              <div class="stat-card__info">
+                <strong id="statTotalBookings">0</strong>
+                <span>Tổng lịch khám</span>
+              </div>
+
+            </article>
+
+
+            <!-- PENDING -->
+            <article class="stat-card stat-card--warning">
+
+              <div class="stat-card__icon">
+
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+
+                  <path
+                    d="M12 7V12L15.5 14"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+              </div>
+
+              <div class="stat-card__info">
+                <strong id="statPending">0</strong>
+                <span>Chờ xác nhận</span>
+              </div>
+
+            </article>
+
+
+            <!-- CONFIRMED -->
+            <article class="stat-card stat-card--success">
+
+              <div class="stat-card__icon">
+
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+
+                  <path
+                    d="M8 12.5L10.7 15L16.5 9"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+              </div>
+
+              <div class="stat-card__info">
+                <strong id="statConfirmed">0</strong>
+                <span>Đã xác nhận</span>
+              </div>
+
+            </article>
+
+
+            <!-- CANCELLED -->
+            <article class="stat-card stat-card--danger">
+
+              <div class="stat-card__icon">
+
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+
+                  <path
+                    d="M9 9L15 15M15 9L9 15"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+              </div>
+
+              <div class="stat-card__info">
+                <strong id="statCancelled">0</strong>
+                <span>Đã hủy</span>
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MANAGEMENT CARD
+        ================================================== -->
+        <section class="card card--pad admin-management-card">
+
+          <!-- ===============================================
+               TOOLBAR
+          ================================================ -->
+          <div class="toolbar admin-bookings-toolbar">
+
+            <!-- SEARCH -->
+            <div class="toolbar__search">
+
+              <div class="admin-search-input">
+
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+
+                  <path
+                    d="M16.5 16.5L21 21"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                  />
+                </svg>
+
+                <input
+                  type="search"
+                  id="searchInput"
+                  class="form-control"
+                  placeholder="Tìm theo mã, bệnh nhân, bác sĩ..."
+                  autocomplete="off"
+                  aria-label="Tìm kiếm lịch khám"
+                >
+
+              </div>
+
+            </div>
+
+
+            <!-- FILTERS -->
+            <div class="toolbar__filter">
+
+              <select
+                id="filterStatus"
+                class="form-control"
+                aria-label="Lọc theo trạng thái"
+              >
+                <option value="">
+                  Tất cả trạng thái
+                </option>
+
+                <option value="pending">
+                  Chờ xác nhận
+                </option>
+
+                <option value="confirmed">
+                  Đã xác nhận
+                </option>
+
+                <option value="completed">
+                  Đã khám
+                </option>
+
+                <option value="cancelled">
+                  Đã hủy
+                </option>
+              </select>
+
+
+              <select
+                id="filterSpecialty"
+                class="form-control"
+                aria-label="Lọc theo chuyên khoa"
+              >
+                <option value="">
+                  Tất cả chuyên khoa
+                </option>
+              </select>
+
+
+              <input
+                type="date"
+                id="filterDate"
+                class="form-control"
+                title="Lọc theo ngày khám"
+                aria-label="Lọc theo ngày khám"
+              >
+
+
+              <select
+                id="filterSort"
+                class="form-control"
+                aria-label="Sắp xếp lịch khám"
+              >
+                <option value="">
+                  Sắp xếp mặc định
+                </option>
+
+                <option value="date-asc">
+                  Ngày khám tăng dần
+                </option>
+
+                <option value="date-desc">
+                  Ngày khám giảm dần
+                </option>
+
+                <option value="newest">
+                  Mới đặt nhất
+                </option>
+
+                <option value="oldest">
+                  Cũ nhất
+                </option>
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               RESULT INFO
+          ================================================ -->
+          <div class="admin-result-row">
+
+            <p
+              class="result-count"
+              id="resultCount"
+              aria-live="polite"
+            ></p>
+
+            <div class="admin-result-row__hint">
+              Dữ liệu lịch khám được cập nhật từ hệ thống
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               TABLE
+          ================================================ -->
+          <div class="table-wrap admin-table-wrap">
+
+            <table class="table admin-bookings-table">
+
+              <thead>
+
+                <tr>
+
+                  <th style="width:50px">
+
+                    <input
+                      type="checkbox"
+                      id="checkAll"
+                      aria-label="Chọn tất cả lịch khám"
+                    >
+
+                  </th>
+
+                  <th style="width:110px">
+                    Mã
+                  </th>
+
+                  <th>
+                    Bệnh nhân
+                  </th>
+
+                  <th>
+                    Bác sĩ
+                  </th>
+
+                  <th>
+                    Chuyên khoa
+                  </th>
+
+                  <th>
+                    Ngày &amp; giờ
+                  </th>
+
+                  <th>
+                    Phí khám
+                  </th>
+
+                  <th style="width:130px">
+                    Trạng thái
+                  </th>
+
+                  <th style="width:180px">
+                    Hành động
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody id="bookingTableBody">
+                <!-- JS render -->
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+          <!-- ===============================================
+               EMPTY STATE
+          ================================================ -->
+          <div
+            class="empty-state admin-empty-state"
+            id="emptyState"
+            style="display:none"
+          >
+
+            <div class="empty-state__icon">
+
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect
+                  x="5"
+                  y="4"
+                  width="14"
+                  height="17"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+
+                <path
+                  d="M9 4.5V3H15V4.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M9 9H15M9 13H15M9 17H12"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </div>
+
+            <h3>
+              Chưa có lịch khám nào
+            </h3>
+
+            <p>
+              Không tìm thấy lịch khám phù hợp với dữ liệu hoặc bộ lọc hiện tại.
+            </p>
+
+          </div>
+
+
+          <!-- ===============================================
+               PAGINATION
+          ================================================ -->
+          <nav
+            class="pagination"
+            id="pagination"
+            aria-label="Phân trang lịch khám"
+          ></nav>
+
+        </section>
+
+      </main>
+
+
+      <!-- ===================================================
+           FOOTER
+      ==================================================== -->
+      <footer class="admin-footer">
+        <p>© 2026 MediCare Admin Panel.</p>
+      </footer>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       CONFIRM BOOKING MODAL
+  ======================================================== -->
+  <div
+    class="modal"
+    id="confirmModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="confirmModalTitle"
+  >
+
+    <div
+      class="modal__overlay"
+      onclick="closeModal('confirmModal')"
+    ></div>
+
+
+    <div class="modal__content modal__content--sm">
+
+      <!-- HEADER -->
+      <div class="modal__header">
+
+        <div>
+
+          <span class="admin-modal__eyebrow">
+            Trạng thái lịch khám
+          </span>
+
+          <h3
+            class="modal__title"
+            id="confirmModalTitle"
+          >
+            Xác nhận lịch khám
+          </h3>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="modal__close"
+          onclick="closeModal('confirmModal')"
+          aria-label="Đóng hộp thoại"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+
+      <!-- BODY -->
+      <div class="modal__body">
+
+        <div class="admin-booking-confirm">
+
+          <div class="admin-booking-confirm__icon">
+
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+
+              <path
+                d="M8 12.5L10.7 15L16.5 9"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <p>
+              Xác nhận lịch khám
+              <strong id="confirmBookingCode">—</strong>?
+            </p>
+
+            <p class="text-sm text-gray">
+              Trạng thái lịch khám sẽ được chuyển sang đã xác nhận.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="modal__footer">
+
+        <button
+          type="button"
+          class="btn btn--outline"
+          onclick="closeModal('confirmModal')"
+        >
+          Hủy
+        </button>
+
+
+        <button
+          type="button"
+          class="btn btn--success"
+          id="confirmBookingBtn"
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M5 12.5L9.2 16.5L19 7"
+              stroke="currentColor"
+              stroke-width="1.9"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          Xác nhận
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       CANCEL BOOKING MODAL
+  ======================================================== -->
+  <div
+    class="modal"
+    id="cancelModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cancelModalTitle"
+  >
+
+    <div
+      class="modal__overlay"
+      onclick="closeModal('cancelModal')"
+    ></div>
+
+
+    <div class="modal__content modal__content--sm">
+
+      <!-- HEADER -->
+      <div class="modal__header">
+
+        <div>
+
+          <span class="admin-modal__eyebrow">
+            Thay đổi lịch khám
+          </span>
+
+          <h3
+            class="modal__title"
+            id="cancelModalTitle"
+          >
+            Hủy lịch khám
+          </h3>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="modal__close"
+          onclick="closeModal('cancelModal')"
+          aria-label="Đóng hộp thoại"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+
+      <!-- BODY -->
+      <div class="modal__body">
+
+        <div class="admin-delete-warning">
+
+          <div class="admin-delete-warning__icon">
+
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 3L22 20H2L12 3Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M12 9V14"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+
+              <circle
+                cx="12"
+                cy="17"
+                r="1"
+                fill="currentColor"
+              />
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <p>
+              Bạn có chắc muốn hủy lịch khám
+              <strong id="cancelBookingCode">—</strong>?
+            </p>
+
+            <p class="text-sm text-gray">
+              Hãy ghi rõ lý do để lưu lại thông tin xử lý lịch khám.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group admin-cancel-reason">
+
+          <label for="cancelReason">
+            Lý do hủy
+          </label>
+
+          <textarea
+            id="cancelReason"
+            class="form-control"
+            rows="4"
+            maxlength="500"
+            placeholder="Nhập lý do hủy lịch..."
+          ></textarea>
+
+          <small class="form-hint">
+            Tối đa 500 ký tự.
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="modal__footer">
+
+        <button
+          type="button"
+          class="btn btn--outline"
+          onclick="closeModal('cancelModal')"
+        >
+          Không
+        </button>
+
+
+        <button
+          type="button"
+          class="btn btn--danger"
+          id="confirmCancelBtn"
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          Hủy lịch
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       DELETE BOOKING MODAL
+  ======================================================== -->
+  <div
+    class="modal"
+    id="deleteModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="deleteModalTitle"
+  >
+
+    <div
+      class="modal__overlay"
+      onclick="closeModal('deleteModal')"
+    ></div>
+
+
+    <div class="modal__content modal__content--sm">
+
+      <!-- HEADER -->
+      <div class="modal__header">
+
+        <div>
+
+          <span class="admin-modal__eyebrow">
+            Xóa dữ liệu
+          </span>
+
+          <h3
+            class="modal__title"
+            id="deleteModalTitle"
+          >
+            Xác nhận xóa
+          </h3>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="modal__close"
+          onclick="closeModal('deleteModal')"
+          aria-label="Đóng hộp thoại"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6 6L18 18M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+
+      <!-- BODY -->
+      <div class="modal__body">
+
+        <div class="admin-delete-warning">
+
+          <div class="admin-delete-warning__icon">
+
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 3L22 20H2L12 3Z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M12 9V14"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+
+              <circle
+                cx="12"
+                cy="17"
+                r="1"
+                fill="currentColor"
+              />
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <p>
+              Bạn có chắc muốn xóa lịch khám
+              <strong id="deleteBookingCode">—</strong>?
+            </p>
+
+            <p class="text-sm text-gray">
+              Dữ liệu lịch khám sau khi xóa sẽ không thể khôi phục bằng thao tác thông thường.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="modal__footer">
+
+        <button
+          type="button"
+          class="btn btn--outline"
+          onclick="closeModal('deleteModal')"
+        >
+          Hủy
+        </button>
+
+
+        <button
+          type="button"
+          class="btn btn--danger"
+          id="confirmDeleteBtn"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M4 7H20"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M9 3H15L16 7H8L9 3Z"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M6.5 7L7.5 21H16.5L17.5 7"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M10 11V17M14 11V17"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          Xóa lịch
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       SCRIPTS
+  ======================================================== -->
+
+  <!-- Core -->
+  <script src="../../js/core/config.js"></script>
+  <script src="../../js/core/storage.js"></script>
+  <script src="../../js/core/utils.js"></script>
+  <script src="../../js/core/validator.js"></script>
+
+  <!-- Data -->
+  <script src="../../js/data/specialties.js"></script>
+  <script src="../../js/data/doctors.js"></script>
+  <script src="../../js/data/seed.js"></script>
+
+  <!-- Services -->
+  <script src="../../js/services/auth.service.js"></script>
+  <script src="../../js/services/doctor.service.js"></script>
+  <script src="../../js/services/booking.service.js"></script>
+  <script src="../../js/services/user.service.js"></script>
+
+  <!-- Components -->
+  <script src="../../js/components/header.js"></script>
+  <script src="../../js/components/footer.js"></script>
+  <script src="../../js/components/sidebar.js"></script>
+  <script src="../../js/components/toast.js"></script>
+  <script src="../../js/components/modal.js"></script>
+
+  <!-- Page -->
+  <script src="../../js/pages/admin.js"></script>
+
+  <!-- App -->
+  <script src="../../js/app.js"></script>
+
+</body>
+</html>

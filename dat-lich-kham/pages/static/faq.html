@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Câu hỏi thường gặp về dịch vụ đặt lịch khám trực tuyến Bệnh viện Hàng không Việt Nam. Giải đáp về đặt lịch, tài khoản, thanh toán và dịch vụ y tế.">
+<meta name="theme-color" content="#0f766e">
+  <title>Câu hỏi thường gặp – Bệnh viện Hàng không Việt Nam</title>
+  <link rel="icon" href="../../assets/images/logo/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header"></header>
+
+  <!-- ==================== PAGE HEADER ==================== -->
+  <section class="page-header page-header--faq">
+    <div class="page-header__bg" aria-hidden="true"></div>
+    <div class="container page-header__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Trang chủ</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+        <span aria-current="page">Câu hỏi thường gặp</span>
+      </nav>
+
+      <div class="page-header__content">
+        <span class="page-header__eyebrow">Trung tâm hỗ trợ</span>
+        <h1 class="page-header__title">Câu hỏi thường gặp</h1>
+        <p class="page-header__desc">
+          Tổng hợp những thắc mắc phổ biến về dịch vụ đặt lịch khám trực tuyến
+          của Bệnh viện Hàng không Việt Nam. Nếu không tìm thấy câu trả lời, đội ngũ hỗ trợ luôn sẵn sàng.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ CONTENT ==================== -->
+  <section class="section section--faq">
+    <div class="container">
+
+      <!-- SEARCH -->
+      <div class="faq-search" role="search">
+        <div class="faq-search__field">
+          <svg class="faq-search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="search"
+            id="faqSearch"
+            class="faq-search__input"
+            placeholder="Tìm kiếm câu hỏi, ví dụ: hoàn tiền, đổi lịch..."
+            autocomplete="off"
+            aria-label="Tìm kiếm câu hỏi thường gặp">
+          <button type="button" class="faq-search__clear" id="faqSearchClear" aria-label="Xóa tìm kiếm" hidden>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <p class="faq-search__hint">
+          Gợi ý phổ biến:
+          <button type="button" class="faq-search__chip" data-q="hoàn tiền">hoàn tiền</button>
+          <button type="button" class="faq-search__chip" data-q="đổi lịch">đổi lịch</button>
+          <button type="button" class="faq-search__chip" data-q="thanh toán">thanh toán</button>
+        </p>
+      </div>
+
+      <!-- LAYOUT -->
+      <div class="faq-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="faq-sidebar" aria-label="Danh mục câu hỏi">
+          <div class="faq-sidebar__head">
+            <h2 class="faq-sidebar__title">Danh mục</h2>
+          </div>
+
+          <nav class="faq-menu">
+            <a href="#cat-booking" class="faq-menu__item is-active" data-cat="booking">
+              <span class="faq-menu__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </span>
+              <span class="faq-menu__label">Đặt lịch khám</span>
+              <span class="faq-menu__count">4</span>
+            </a>
+
+            <a href="#cat-account" class="faq-menu__item" data-cat="account">
+              <span class="faq-menu__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <span class="faq-menu__label">Tài khoản</span>
+              <span class="faq-menu__count">3</span>
+            </a>
+
+            <a href="#cat-payment" class="faq-menu__item" data-cat="payment">
+              <span class="faq-menu__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+              </span>
+              <span class="faq-menu__label">Thanh toán</span>
+              <span class="faq-menu__count">3</span>
+            </a>
+
+            <a href="#cat-medical" class="faq-menu__item" data-cat="medical">
+              <span class="faq-menu__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21V7l7-4 7 4v14"></path>
+                  <path d="M9 21v-5h6v5"></path>
+                  <path d="M8 10h2"></path>
+                  <path d="M14 10h2"></path>
+                  <path d="M8 13h2"></path>
+                  <path d="M14 13h2"></path>
+                </svg>
+              </span>
+              <span class="faq-menu__label">Dịch vụ y tế</span>
+              <span class="faq-menu__count">3</span>
+            </a>
+
+            <a href="#cat-other" class="faq-menu__item" data-cat="other">
+              <span class="faq-menu__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </span>
+              <span class="faq-menu__label">Câu hỏi khác</span>
+              <span class="faq-menu__count">3</span>
+            </a>
+          </nav>
+
+          <!-- Sidebar CTA -->
+          <div class="faq-sidebar__cta">
+            <div class="faq-sidebar__cta-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="faq-sidebar__cta-title">Không tìm thấy?</h3>
+            <p class="faq-sidebar__cta-desc">Đội ngũ hỗ trợ sẵn sàng giải đáp 24/7.</p>
+            <a href="contact.html" class="btn btn--primary btn--sm">Liên hệ hỗ trợ</a>
+          </div>
+        </aside>
+
+        <!-- CONTENT -->
+        <div class="faq-content">
+
+          <!-- ===== ĐẶT LỊCH KHÁM ===== -->
+          <section class="faq-category" id="cat-booking" data-category="booking">
+            <header class="faq-category__head">
+              <span class="faq-category__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </span>
+              <h2 class="faq-category__title">Đặt lịch khám</h2>
+            </header>
+
+            <div class="faq-accordion">
+              <details class="faq-item" open>
+                <summary class="faq-item__q">
+                  <span>Làm sao để đặt lịch khám online?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>Bạn thực hiện theo ba bước đơn giản:</p>
+                  <ol class="list-number">
+                    <li>Chọn bác sĩ theo chuyên khoa hoặc dùng thanh tìm kiếm.</li>
+                    <li>Chọn ngày giờ khám phù hợp với lịch của bạn.</li>
+                    <li>Điền thông tin bệnh nhân và xác nhận đặt lịch.</li>
+                  </ol>
+                  <p>Sau khi hoàn tất, hệ thống sẽ gửi mã đặt lịch và thông báo xác nhận qua SMS và email.</p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi có thể đặt lịch trước bao lâu?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Bạn có thể đặt lịch trước tối đa <strong>30 ngày</strong>
+                    và tối thiểu <strong>2 giờ</strong> so với thời điểm khám mong muốn.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi có thể đổi lịch khám không?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Có. Bạn có thể hủy lịch cũ và đặt lịch mới trong mục
+                    <strong>Lịch sử đặt lịch</strong>. Vui lòng thực hiện
+                    trước giờ hẹn ít nhất 2 giờ để đảm bảo không mất phí.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi có thể đặt lịch cho người thân không?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Có. Khi điền thông tin bệnh nhân, bạn chỉ cần nhập
+                    họ tên và số điện thoại của người thân. Không cần
+                    tạo tài khoản riêng cho họ.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- ===== TÀI KHOẢN ===== -->
+          <section class="faq-category" id="cat-account" data-category="account">
+            <header class="faq-category__head">
+              <span class="faq-category__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <h2 class="faq-category__title">Tài khoản</h2>
+            </header>
+
+            <div class="faq-accordion">
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi quên mật khẩu thì phải làm sao?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Truy cập trang <a href="../auth/forgot-password.html" class="text-primary">Quên mật khẩu</a>
+                    và nhập email đã đăng ký. Hệ thống sẽ gửi hướng dẫn khôi phục
+                    qua email của bạn trong vòng vài phút.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Làm sao để thay đổi thông tin cá nhân?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Vào <a href="../user/profile.html" class="text-primary">Hồ sơ cá nhân</a>,
+                    nhấn nút <strong>Chỉnh sửa</strong>, cập nhật thông tin
+                    cần thay đổi rồi nhấn <strong>Lưu thay đổi</strong>.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi có thể xóa tài khoản không?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Có. Vui lòng liên hệ hotline <strong>1900 1234</strong>
+                    hoặc gửi email đến <strong>hotro@benhvienhangkhong.vn</strong>
+                    để được hỗ trợ xóa tài khoản và dữ liệu liên quan.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- ===== THANH TOÁN ===== -->
+          <section class="faq-category" id="cat-payment" data-category="payment">
+            <header class="faq-category__head">
+              <span class="faq-category__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+              </span>
+              <h2 class="faq-category__title">Thanh toán</h2>
+            </header>
+
+            <div class="faq-accordion">
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Bệnh viện Hàng không Việt Nam hỗ trợ những phương thức thanh toán nào?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>Chúng tôi hỗ trợ ba phương thức thanh toán:</p>
+                  <ul class="list-check">
+                    <li>Thanh toán tiền mặt tại phòng khám.</li>
+                    <li>Chuyển khoản ngân hàng.</li>
+                    <li>Ví điện tử Momo, ZaloPay, VNPay.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi có được hoàn tiền nếu hủy lịch không?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Nếu bạn đã thanh toán trước và hủy lịch trước giờ hẹn
+                    <strong>2 giờ</strong>, bạn sẽ được hoàn tiền 100%.
+                    Hủy muộn hơn sẽ không được hoàn.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Phí khám có bao gồm xét nghiệm không?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Phí khám chỉ bao gồm công khám của bác sĩ. Các xét nghiệm
+                    và chẩn đoán hình ảnh sẽ được tính riêng theo bảng giá
+                    của bệnh viện nơi bạn khám.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- ===== DỊCH VỤ Y TẾ ===== -->
+          <section class="faq-category" id="cat-medical" data-category="medical">
+            <header class="faq-category__head">
+              <span class="faq-category__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21V7l7-4 7 4v14"></path>
+                  <path d="M9 21v-5h6v5"></path>
+                  <path d="M8 10h2"></path>
+                  <path d="M14 10h2"></path>
+                  <path d="M8 13h2"></path>
+                  <path d="M14 13h2"></path>
+                </svg>
+              </span>
+              <h2 class="faq-category__title">Dịch vụ y tế</h2>
+            </header>
+
+            <div class="faq-accordion">
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi cần mang theo giấy tờ gì khi đi khám?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>Vui lòng mang theo:</p>
+                  <ul class="list-check">
+                    <li>CMND/CCCD hoặc hộ chiếu.</li>
+                    <li>Thẻ BHYT (nếu có).</li>
+                    <li>Mã đặt lịch dạng in hoặc ảnh chụp màn hình.</li>
+                    <li>Kết quả xét nghiệm cũ (nếu có).</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi nên đến trước giờ hẹn bao lâu?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Bạn nên đến trước giờ hẹn <strong>15 phút</strong>
+                    để hoàn tất thủ tục đăng ký và ổn định chỗ ngồi.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi có thể yêu cầu bác sĩ cụ thể không?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Có. Khi đặt lịch, bạn chọn trực tiếp bác sĩ mong muốn.
+                    Nếu bác sĩ không có lịch trống, hệ thống sẽ gợi ý
+                    bác sĩ khác cùng chuyên khoa với lịch phù hợp.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- ===== KHÁC ===== -->
+          <section class="faq-category" id="cat-other" data-category="other">
+            <header class="faq-category__head">
+              <span class="faq-category__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </span>
+              <h2 class="faq-category__title">Câu hỏi khác</h2>
+            </header>
+
+            <div class="faq-accordion">
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi muốn góp ý về dịch vụ thì làm thế nào?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Bạn có thể gửi góp ý qua
+                    <a href="contact.html" class="text-primary">trang Liên hệ</a>
+                    hoặc gọi hotline <strong>1900 1234</strong>.
+                    Chúng tôi luôn trân trọng mọi ý kiến đóng góp.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Bệnh viện Hàng không Việt Nam có ứng dụng di động không?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Hiện tại Bệnh viện Hàng không Việt Nam hoạt động trên nền tảng web.
+                    Ứng dụng di động đang trong quá trình phát triển
+                    và sẽ ra mắt trong thời gian tới.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item">
+                <summary class="faq-item__q">
+                  <span>Tôi không tìm thấy câu trả lời mình cần?</span>
+                  <span class="faq-item__indicator" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__a">
+                  <p>
+                    Vui lòng liên hệ với chúng tôi qua
+                    <a href="contact.html" class="text-primary">trang Liên hệ</a>
+                    hoặc hotline <strong>1900 1234</strong>.
+                    Đội ngũ chăm sóc khách hàng hỗ trợ 24/7.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <!-- EMPTY STATE -->
+          <div class="empty-state" id="faqEmpty" hidden>
+            <div class="empty-state__icon" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+            <h3 class="empty-state__title">Không tìm thấy câu hỏi phù hợp</h3>
+            <p class="empty-state__desc">
+              Hãy thử từ khóa khác hoặc liên hệ trực tiếp với đội ngũ hỗ trợ của chúng tôi.
+            </p>
+            <a href="contact.html" class="btn btn--primary">Liên hệ hỗ trợ</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA FINAL ==================== -->
+  <section class="section cta-final">
+    <div class="container cta-final__inner">
+      <div class="cta-final__content">
+        <h2 class="cta-final__title">Vẫn còn thắc mắc?</h2>
+        <p class="cta-final__desc">
+          Đội ngũ hỗ trợ của Bệnh viện Hàng không Việt Nam luôn sẵn sàng giải đáp mọi câu hỏi của bạn,
+          bất kể ngày nào trong tuần.
+        </p>
+        <div class="cta-final__actions">
+          <a href="contact.html" class="btn btn--primary btn--lg">
+            Liên hệ ngay
+          </a>
+          <a href="../doctors/list.html" class="btn btn--outline-light btn--lg">
+            Xem danh sách bác sĩ
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Core -->
+<script src="../../js/core/config.js"></script>
+<script src="../../js/core/storage.js"></script>
+<script src="../../js/core/utils.js"></script>
+<script src="../../js/core/validator.js"></script>
+
+<!-- Data -->
+<script src="../../js/data/specialties.js"></script>
+<script src="../../js/data/doctors.js"></script>
+<script src="../../js/data/seed.js"></script>
+
+<!-- Services -->
+<script src="../../js/services/auth.service.js"></script>
+<script src="../../js/services/doctor.service.js"></script>
+<script src="../../js/services/booking.service.js"></script>
+<script src="../../js/services/user.service.js"></script>
+
+<!-- Components -->
+<script src="../../js/components/header.js"></script>
+<script src="../../js/components/footer.js"></script>
+<script src="../../js/components/sidebar.js"></script>
+<script src="../../js/components/toast.js"></script>
+<script src="../../js/components/modal.js"></script>
+
+<!-- FAQ -->
+<script src="../../js/pages/faq.js"></script>
+
+<!-- App -->
+<script src="../../js/app.js"></script>
+</body>
+</html>

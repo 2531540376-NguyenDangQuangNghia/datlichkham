@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Đăng ký tài khoản Bệnh viện Hàng không Việt Nam – Đặt lịch khám trực tuyến"
+  >
+
+  <meta name="theme-color" content="#0f766e">
+
+  <title>Đăng ký – Bệnh viện Hàng không Việt Nam</title>
+
+  <link rel="icon" href="../../assets/images/logo/favicon.ico">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body class="auth-page">
+
+  <div class="auth-wrapper">
+
+    <div class="auth-box auth-box--wide">
+
+      <!-- LOGO -->
+      <a href="../../index.html" class="auth-box__logo">
+
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M3 21h18"></path>
+          <path d="M5 21V7l7-4 7 4v14"></path>
+          <path d="M9 21v-5h6v5"></path>
+          <path d="M8 10h2"></path>
+          <path d="M14 10h2"></path>
+          <path d="M8 13h2"></path>
+          <path d="M14 13h2"></path>
+        </svg>
+
+        <span>Bệnh viện Hàng không Việt Nam</span>
+      </a>
+
+
+      <!-- TIÊU ĐỀ -->
+      <h2 class="auth-box__title">
+        Đăng ký tài khoản
+      </h2>
+
+      <p class="auth-box__sub">
+        Tạo tài khoản để đặt lịch khám trực tuyến
+      </p>
+
+
+      <!-- ALERT -->
+      <div
+        id="alertBox"
+        class="alert"
+        role="alert"
+        aria-live="polite"
+      ></div>
+
+
+      <!-- FORM -->
+      <form id="registerForm" novalidate>
+
+        <div class="form-group">
+
+          <label for="regName">
+            Họ và tên
+          </label>
+
+          <input
+            type="text"
+            id="regName"
+            name="name"
+            class="form-control"
+            placeholder="Nguyễn Văn A"
+            autocomplete="name"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="regEmail">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="regEmail"
+            name="email"
+            class="form-control"
+            placeholder="example@email.com"
+            autocomplete="email"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="regPhone">
+            Số điện thoại
+          </label>
+
+          <input
+            type="tel"
+            id="regPhone"
+            name="phone"
+            class="form-control"
+            placeholder="0912345678"
+            pattern="[0-9]{10,11}"
+            autocomplete="tel"
+            inputmode="numeric"
+            maxlength="11"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="regPassword">
+              Mật khẩu
+            </label>
+
+            <input
+              type="password"
+              id="regPassword"
+              name="password"
+              class="form-control"
+              placeholder="Tối thiểu 6 ký tự"
+              autocomplete="new-password"
+              minlength="6"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="regConfirm">
+              Xác nhận mật khẩu
+            </label>
+
+            <input
+              type="password"
+              id="regConfirm"
+              name="confirm"
+              class="form-control"
+              placeholder="Nhập lại mật khẩu"
+              autocomplete="new-password"
+              minlength="6"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- TERMS -->
+        <label
+          class="form-check"
+          style="margin-bottom:16px"
+        >
+
+          <input
+            type="checkbox"
+            id="agreeTerms"
+            required
+          >
+
+          <span>
+            Tôi đồng ý với
+            <a href="#" class="text-primary">
+              điều khoản sử dụng
+            </a>
+            và
+            <a href="#" class="text-primary">
+              chính sách bảo mật
+            </a>
+            của Bệnh viện Hàng không Việt Nam.
+          </span>
+
+        </label>
+
+
+        <!-- SUBMIT -->
+        <button
+          type="submit"
+          class="btn btn--primary btn--block"
+        >
+          Đăng ký
+        </button>
+
+      </form>
+
+
+      <!-- FOOTER -->
+      <p class="auth-box__footer">
+
+        Đã có tài khoản?
+
+        <a href="login.html">
+          Đăng nhập
+        </a>
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- SCRIPTS -->
+  <script src="../../js/core/config.js"></script>
+  <script src="../../js/core/storage.js"></script>
+  <script src="../../js/core/utils.js"></script>
+  <script src="../../js/core/validator.js"></script>
+
+  <script src="../../js/data/specialties.js"></script>
+  <script src="../../js/data/doctors.js"></script>
+  <script src="../../js/data/seed.js"></script>
+
+  <script src="../../js/services/auth.service.js"></script>
+
+  <script src="../../js/pages/auth.js"></script>
+  <script src="../../js/app.js"></script>
+
+</body>
+</html>

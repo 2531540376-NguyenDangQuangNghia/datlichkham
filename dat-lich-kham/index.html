@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Bệnh viện Hàng không Việt Nam – Nền tảng đặt lịch khám bệnh trực tuyến, giúp bạn tìm bác sĩ, lựa chọn chuyên khoa và đặt lịch khám nhanh chóng."
+  >
+
+  <meta
+    name="keywords"
+    content="Bệnh viện Hàng không Việt Nam, đặt lịch khám, bác sĩ, chuyên khoa, khám bệnh trực tuyến"
+  >
+
+  <meta name="author" content="Bệnh viện Hàng không Việt Nam Team">
+  <meta name="theme-color" content="#0F766E">
+
+  <title>Bệnh viện Hàng không Việt Nam | Đặt lịch khám bệnh trực tuyến</title>
+
+  <link rel="icon" href="assets/images/logo/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="header" id="header"></header>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main>
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero" aria-labelledby="heroTitle">
+
+      <div class="hero__background" aria-hidden="true">
+        <div class="hero__gradient"></div>
+        <div class="hero__pattern"></div>
+        <div class="hero__glow hero__glow--one"></div>
+        <div class="hero__glow hero__glow--two"></div>
+      </div>
+
+      <div class="container hero__container">
+
+        <!-- LEFT -->
+        <div class="hero__content">
+
+          <div class="hero__badge">
+
+            <span class="hero__badge-icon" aria-hidden="true">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </span>
+
+            <span>Nền tảng đặt lịch khám trực tuyến</span>
+
+          </div>
+
+
+          <h1 class="hero__title" id="heroTitle">
+            Chăm sóc sức khỏe
+            <span class="hero__title-accent">
+              bắt đầu từ một lịch hẹn
+            </span>
+          </h1>
+
+
+          <p class="hero__description">
+            Tìm kiếm bác sĩ phù hợp, lựa chọn chuyên khoa và chủ động
+            đặt lịch khám chỉ trong vài bước đơn giản.
+          </p>
+
+
+          <!-- SEARCH -->
+
+          <form
+            class="search-box"
+            id="homeSearchForm"
+            action="pages/doctors/search.html"
+            method="get"
+            role="search"
+          >
+
+            <div class="search-box__field">
+
+              <span class="search-box__icon" aria-hidden="true">
+                <svg
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.35-4.35"/>
+                </svg>
+              </span>
+
+              <input
+                type="search"
+                name="q"
+                id="homeSearchInput"
+                class="search-box__input"
+                placeholder="Tìm bác sĩ, chuyên khoa..."
+                autocomplete="off"
+                aria-label="Tìm bác sĩ hoặc chuyên khoa"
+              >
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="btn btn--primary search-box__button"
+            >
+
+              <span>Tìm kiếm</span>
+
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+
+            </button>
+
+          </form>
+
+
+          <!-- QUICK LINKS -->
+
+          <div class="hero__quick-search">
+
+            <span class="hero__quick-label">
+              Tìm kiếm phổ biến:
+            </span>
+
+            <a href="pages/doctors/search.html?q=tim-mach">
+              Tim mạch
+            </a>
+
+            <a href="pages/doctors/search.html?q=da-lieu">
+              Da liễu
+            </a>
+
+            <a href="pages/doctors/search.html?q=nhi-khoa">
+              Nhi khoa
+            </a>
+
+          </div>
+
+
+          <!-- TRUST -->
+
+          <div class="hero__trust">
+
+            <div class="hero__trust-item">
+
+              <span class="hero__trust-icon" aria-hidden="true">
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6 9 17l-5-5"/>
+                </svg>
+              </span>
+
+              <span>Bác sĩ được xác minh</span>
+
+            </div>
+
+
+            <div class="hero__trust-item">
+
+              <span class="hero__trust-icon" aria-hidden="true">
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+              </span>
+
+              <span>Đặt lịch nhanh chóng</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="hero__visual" aria-hidden="true">
+
+          <div class="hero-card">
+
+            <div class="hero-card__top">
+
+              <div class="hero-card__icon">
+
+                <svg
+                  width="27"
+                  height="27"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2v20"/>
+                  <path d="M2 12h20"/>
+                </svg>
+
+              </div>
+
+              <div>
+                <span class="hero-card__label">
+                  Lịch khám hôm nay
+                </span>
+
+                <strong class="hero-card__title">
+                  Chăm sóc sức khỏe
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="hero-card__appointment">
+
+              <div class="hero-card__avatar">
+
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21a8 8 0 0 0-16 0"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+
+              </div>
+
+              <div class="hero-card__doctor">
+
+                <span>Bác sĩ chuyên khoa</span>
+
+                <strong>
+                  Đặt lịch trực tuyến
+                </strong>
+
+              </div>
+
+
+              <span class="hero-card__status">
+                Sẵn sàng
+              </span>
+
+            </div>
+
+
+            <div class="hero-card__schedule">
+
+              <div class="hero-card__schedule-item">
+
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="5" width="18" height="16" rx="2"/>
+                  <path d="M16 3v4"/>
+                  <path d="M8 3v4"/>
+                  <path d="M3 11h18"/>
+                </svg>
+
+                <div>
+                  <span>Ngày khám</span>
+                  <strong>Chủ động lựa chọn</strong>
+                </div>
+
+              </div>
+
+
+              <div class="hero-card__schedule-item">
+
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+
+                <div>
+                  <span>Khung giờ</span>
+                  <strong>Linh hoạt</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- FLOAT CARD -->
+
+          <div class="hero-float hero-float--rating">
+
+            <div class="hero-float__icon">
+
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2 15 8.5 22 9.3 17 14l1.4 7-6.4-3.5L5.6 21 7 14 2 9.3l7-.8L12 2z"/>
+              </svg>
+
+            </div>
+
+            <div>
+              <strong>4.9/5</strong>
+              <span>Đánh giá bệnh nhân</span>
+            </div>
+
+          </div>
+
+
+          <div class="hero-float hero-float--verified">
+
+            <div class="hero-float__icon">
+
+              <svg
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+
+            </div>
+
+            <div>
+              <strong>500+</strong>
+              <span>Bác sĩ xác minh</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- STATISTICS -->
+
+      <div class="container hero__stats">
+
+        <div class="stat-card">
+          <strong class="stat-card__value">500+</strong>
+          <span class="stat-card__label">Bác sĩ chuyên khoa</span>
+        </div>
+
+        <div class="stat-card">
+          <strong class="stat-card__value">20+</strong>
+          <span class="stat-card__label">Chuyên khoa</span>
+        </div>
+
+        <div class="stat-card">
+          <strong class="stat-card__value">50K+</strong>
+          <span class="stat-card__label">Lượt đặt lịch</span>
+        </div>
+
+        <div class="stat-card">
+          <strong class="stat-card__value">24/7</strong>
+          <span class="stat-card__label">Hỗ trợ khách hàng</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SPECIALTIES
+    ==================================================== -->
+
+    <section
+      class="section specialties-section"
+      id="specialtiesSection"
+      aria-labelledby="specialtiesTitle"
+    >
+
+      <div class="container">
+
+        <div class="section__header">
+
+          <div class="section__heading">
+
+            <span class="section__eyebrow">
+              Chuyên khoa
+            </span>
+
+            <h2 class="section__title" id="specialtiesTitle">
+              Tìm chuyên khoa phù hợp
+            </h2>
+
+            <p class="section__description">
+              Lựa chọn chuyên khoa theo nhu cầu để tìm bác sĩ
+              phù hợp với tình trạng sức khỏe của bạn.
+            </p>
+
+          </div>
+
+          <a
+            href="pages/doctors/list.html"
+            class="section__link"
+          >
+            <span>Xem tất cả</span>
+
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14"/>
+              <path d="m13 6 6 6-6 6"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+
+        <div
+          class="grid grid--4 specialties-grid"
+          id="specialtyGrid"
+        >
+          <!-- Render bởi home.js -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DOCTORS
+    ==================================================== -->
+
+    <section
+      class="section section--surface doctors-section"
+      id="doctorsSection"
+      aria-labelledby="doctorsTitle"
+    >
+
+      <div class="container">
+
+        <div class="section__header">
+
+          <div class="section__heading">
+
+            <span class="section__eyebrow">
+              Đội ngũ chuyên môn
+            </span>
+
+            <h2 class="section__title" id="doctorsTitle">
+              Bác sĩ nổi bật
+            </h2>
+
+            <p class="section__description">
+              Kết nối với đội ngũ bác sĩ giàu kinh nghiệm
+              thuộc nhiều chuyên khoa khác nhau.
+            </p>
+
+          </div>
+
+
+          <a
+            href="pages/doctors/list.html"
+            class="btn btn--outline"
+          >
+
+            <span>Xem tất cả bác sĩ</span>
+
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14"/>
+              <path d="m13 6 6 6-6 6"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+
+        <div
+          class="grid grid--3 doctors-grid"
+          id="featuredDoctorGrid"
+        >
+          <!-- Render bởi home.js -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         BOOKING PROCESS
+    ==================================================== -->
+
+    <section
+      class="section process-section"
+      id="processSection"
+      aria-labelledby="processTitle"
+    >
+
+      <div class="container">
+
+        <div class="section__head section__head--center">
+
+          <span class="section__eyebrow">
+            Đặt lịch đơn giản
+          </span>
+
+          <h2 class="section__title" id="processTitle">
+            Hoàn tất lịch khám trong 3 bước
+          </h2>
+
+          <p class="section__description">
+            Quy trình được tối ưu để bạn dễ dàng tìm bác sĩ
+            và chủ động lựa chọn thời gian khám.
+          </p>
+
+        </div>
+
+
+        <div class="process">
+
+          <!-- STEP 1 -->
+
+          <article class="process__step">
+
+            <span class="process__number">
+              01
+            </span>
+
+            <div class="process__icon">
+
+              <svg
+                width="27"
+                height="27"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-4-4"/>
+                <path d="M11 8v6"/>
+                <path d="M8 11h6"/>
+              </svg>
+
+            </div>
+
+            <h3 class="process__title">
+              Tìm bác sĩ
+            </h3>
+
+            <p class="process__description">
+              Tìm kiếm bác sĩ theo chuyên khoa, thông tin
+              chuyên môn và nhu cầu khám.
+            </p>
+
+          </article>
+
+
+          <div class="process__connector" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 120 24"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M2 12H112"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-dasharray="5 5"
+              />
+              <path
+                d="m107 7 6 5-6 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+          </div>
+
+
+          <!-- STEP 2 -->
+
+          <article class="process__step">
+
+            <span class="process__number">
+              02
+            </span>
+
+            <div class="process__icon">
+
+              <svg
+                width="27"
+                height="27"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="5" width="18" height="16" rx="2"/>
+                <path d="M16 3v4"/>
+                <path d="M8 3v4"/>
+                <path d="M3 11h18"/>
+                <path d="M8 15h2"/>
+                <path d="M14 15h2"/>
+              </svg>
+
+            </div>
+
+            <h3 class="process__title">
+              Chọn lịch khám
+            </h3>
+
+            <p class="process__description">
+              Chọn ngày và khung giờ phù hợp với lịch trình
+              cá nhân của bạn.
+            </p>
+
+          </article>
+
+
+          <div class="process__connector" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 120 24"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M2 12H112"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-dasharray="5 5"
+              />
+              <path
+                d="m107 7 6 5-6 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+          </div>
+
+
+          <!-- STEP 3 -->
+
+          <article class="process__step">
+
+            <span class="process__number">
+              03
+            </span>
+
+            <div class="process__icon">
+
+              <svg
+                width="27"
+                height="27"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="9"/>
+                <path d="m8 12 3 3 5-6"/>
+              </svg>
+
+            </div>
+
+            <h3 class="process__title">
+              Xác nhận lịch hẹn
+            </h3>
+
+            <p class="process__description">
+              Kiểm tra thông tin, xác nhận lịch hẹn và đến
+              khám theo thời gian đã lựa chọn.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROMOTION
+    ==================================================== -->
+
+    <section
+      class="section promotion-section"
+      id="promoSection"
+      aria-labelledby="promoTitle"
+    >
+
+      <div class="container">
+
+        <div class="promo">
+
+          <div class="promo__content">
+
+            <span class="promo__eyebrow">
+              Ưu đãi dành cho khách hàng mới
+            </span>
+
+            <h2 class="promo__title" id="promoTitle">
+              Tiết kiệm 20% cho lần đặt lịch đầu tiên
+            </h2>
+
+            <p class="promo__description">
+              Đặt lịch trực tuyến lần đầu qua Bệnh viện Hàng không Việt Nam và
+              nhận ưu đãi cho dịch vụ khám đủ điều kiện.
+            </p>
+
+
+            <div class="promo__actions">
+
+              <a
+                href="pages/doctors/list.html"
+                class="btn btn--primary btn--lg"
+              >
+                <span>Đặt lịch ngay</span>
+
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14"/>
+                  <path d="m13 6 6 6-6 6"/>
+                </svg>
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- VOUCHER -->
+
+          <div class="promo__visual">
+
+            <div class="voucher">
+
+              <div class="voucher__header">
+
+                <span class="voucher__brand">
+                  Bệnh viện Hàng không Việt Nam
+                </span>
+
+                <span class="voucher__tag">
+                  NEW USER
+                </span>
+
+              </div>
+
+
+              <div class="voucher__body">
+
+                <span class="voucher__label">
+                  Ưu đãi
+                </span>
+
+                <strong class="voucher__discount">
+                  20%
+                </strong>
+
+                <span class="voucher__description">
+                  cho lần đặt lịch đầu tiên
+                </span>
+
+              </div>
+
+
+              <div class="voucher__footer">
+
+                <div>
+                  <span>Mã ưu đãi</span>
+                  <strong>HANGKHONG20</strong>
+                </div>
+
+                <button
+                  type="button"
+                  class="voucher__copy"
+                  aria-label="Sao chép mã ưu đãi HANGKHONG20"
+                  data-code="HANGKHONG20"
+                >
+
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="9" y="9" width="13" height="13" rx="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+
+                  <span>Sao chép</span>
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section
+      class="section section--surface why-section"
+      id="whySection"
+      aria-labelledby="whyTitle"
+    >
+
+      <div class="container">
+
+        <div class="section__head section__head--center">
+
+          <span class="section__eyebrow">
+            Giá trị Bệnh viện Hàng không Việt Nam
+          </span>
+
+          <h2 class="section__title" id="whyTitle">
+            Vì sao lựa chọn Bệnh viện Hàng không Việt Nam?
+          </h2>
+
+          <p class="section__description">
+            Nền tảng được xây dựng để giúp quá trình tìm kiếm
+            và đặt lịch khám trở nên thuận tiện, minh bạch hơn.
+          </p>
+
+        </div>
+
+
+        <div class="features">
+
+          <!-- FEATURE -->
+
+          <article class="feature-card">
+
+            <div class="feature-card__icon">
+
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+
+            </div>
+
+            <h3 class="feature-card__title">
+              Đặt lịch nhanh chóng
+            </h3>
+
+            <p class="feature-card__description">
+              Chủ động lựa chọn bác sĩ, ngày khám và khung giờ
+              chỉ trong vài bước.
+            </p>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <div class="feature-card__icon">
+
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21a8 8 0 0 0-16 0"/>
+                <circle cx="12" cy="7" r="4"/>
+                <path d="M19 8v6"/>
+                <path d="M16 11h6"/>
+              </svg>
+
+            </div>
+
+            <h3 class="feature-card__title">
+              Bác sĩ đa chuyên khoa
+            </h3>
+
+            <p class="feature-card__description">
+              Dễ dàng tiếp cận thông tin bác sĩ thuộc nhiều
+              chuyên khoa khác nhau.
+            </p>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <div class="feature-card__icon">
+
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+
+            </div>
+
+            <h3 class="feature-card__title">
+              Thông tin minh bạch
+            </h3>
+
+            <p class="feature-card__description">
+              Thông tin chuyên môn và lịch khám được trình bày
+              rõ ràng trước khi đặt lịch.
+            </p>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <div class="feature-card__icon">
+
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+                <path d="M8 10h.01"/>
+                <path d="M12 10h.01"/>
+                <path d="M16 10h.01"/>
+              </svg>
+
+            </div>
+
+            <h3 class="feature-card__title">
+              Hỗ trợ khi cần
+            </h3>
+
+            <p class="feature-card__description">
+              Hỗ trợ người dùng trong quá trình tìm kiếm,
+              đặt lịch và quản lý lịch khám.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FINAL CTA
+    ==================================================== -->
+
+    <section
+      class="cta-final"
+      aria-labelledby="ctaTitle"
+    >
+
+      <div class="cta-final__background" aria-hidden="true"></div>
+
+      <div class="container cta-final__container">
+
+        <div class="cta-final__content">
+
+          <span class="cta-final__eyebrow">
+            Chủ động chăm sóc sức khỏe
+          </span>
+
+          <h2 class="cta-final__title" id="ctaTitle">
+            Sẵn sàng đặt lịch khám?
+          </h2>
+
+          <p class="cta-final__description">
+            Tạo tài khoản miễn phí để tìm bác sĩ,
+            đặt lịch và quản lý lịch khám thuận tiện hơn.
+          </p>
+
+
+          <div class="cta-final__actions">
+
+            <a
+              href="pages/auth/register.html"
+              class="btn btn--light btn--lg"
+            >
+
+              <span>Đăng ký miễn phí</span>
+
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+
+            </a>
+
+
+            <a
+              href="pages/doctors/list.html"
+              class="btn btn--outline-light btn--lg"
+            >
+              Xem danh sách bác sĩ
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer" id="footer"></footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <!-- Core -->
+  <script src="js/core/config.js"></script>
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/utils.js"></script>
+  <script src="js/core/validator.js"></script>
+
+  <!-- Data -->
+  <script src="js/data/specialties.js"></script>
+  <script src="js/data/doctors.js"></script>
+  <script src="js/data/seed.js"></script>
+
+  <!-- Services -->
+  <script src="js/services/auth.service.js"></script>
+  <script src="js/services/doctor.service.js"></script>
+  <script src="js/services/booking.service.js"></script>
+  <script src="js/services/user.service.js"></script>
+
+  <!-- Components -->
+  <script src="js/components/header.js"></script>
+  <script src="js/components/footer.js"></script>
+  <script src="js/components/sidebar.js"></script>
+  <script src="js/components/toast.js"></script>
+  <script src="js/components/modal.js"></script>
+
+  <!-- Page -->
+  <script src="js/pages/home.js"></script>
+
+  <!-- App -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>

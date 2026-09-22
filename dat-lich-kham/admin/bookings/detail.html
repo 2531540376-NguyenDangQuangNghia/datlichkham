@@ -1,0 +1,2023 @@
+  <!DOCTYPE html>
+  <html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Chi tiết lịch khám – MediCare Admin">
+    <title>Chi tiết lịch khám –</title>
+    <link rel="icon" href="../../assets/images/logo/favicon.ico">
+    <link rel="stylesheet" href="../../css/main.css">
+  </head>
+  <body class="admin-body">
+
+    <div class="admin-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+      <!-- MAIN -->
+      <div class="admin-main">
+
+        <!-- TOPBAR -->
+        <header class="admin-topbar">
+          <button class="admin-topbar__toggle" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+          <div class="admin-topbar__search">
+            <input type="text" class="form-control" placeholder="🔍 Tìm kiếm nhanh...">
+          </div>
+          <div class="admin-topbar__actions">
+            <button class="admin-topbar__icon-btn" title="Thông báo">🔔<span class="badge-dot"></span></button>
+            <button class="admin-topbar__icon-btn" title="Tin nhắn">💬</button>
+            <div class="admin-topbar__user">
+              <div class="admin-topbar__avatar" id="topbarAvatar">A</div>
+              <div class="admin-topbar__user-info">
+                <strong id="topbarName">Admin</strong>
+                <small id="topbarRole">Quản trị viên</small>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENT -->
+        <main class="admin-content">
+
+          <!-- PAGE HEADER -->
+          <div class="admin-page-header">
+            <div>
+              <nav class="breadcrumb">
+                <a href="../dashboard.html">Dashboard</a>
+                <span>/</span>
+                <a href="list.html">Quản lý lịch khám</a>
+                <span>/</span>
+                <span>Chi tiết</span>
+              </nav>
+              <h1 class="admin-page-header__title">Chi tiết lịch khám</h1>
+              <p class="admin-page-header__desc" id="detailSubtitle">Đang tải...</p>
+            </div>
+            <div class="admin-page-header__actions">
+              <a href="list.html" class="btn btn--outline">← Quay lại</a>
+              <button type="button" class="btn btn--success" id="confirmBtn" style="display:none">
+                ✅ Xác nhận
+              </button>
+              <button type="button" class="btn btn--danger" id="cancelBtn" style="display:none">
+                ❌ Hủy lịch
+              </button>
+              <button type="button" class="btn btn--outline" id="printBtn">
+                🖨️ In
+              </button>
+            </div>
+          </div>
+
+          <!-- LOADING -->
+          <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Đang tải thông tin lịch khám...</p>
+          </div>
+
+          <!-- NOT FOUND -->
+          <div class="empty-state" id="notFound" style="display:none">
+            <div class="empty-state__icon">❌</div>
+            <h3>Không tìm thấy lịch khám</h3>
+            <p>Lịch khám bạn tìm không tồn tại hoặc đã bị xóa.</p>
+            <a href="list.html" class="btn btn--primary">← Về danh sách</a>
+          </div>
+
+          <!-- NỘI DUNG CHI TIẾT -->
+          <div id="detailContent" style="display:none">
+
+            <!-- HEADER: MÃ + TRẠNG THÁI -->
+            <div class="card card--pad booking-detail-head">
+              <div class="booking-detail-head__left">
+                <div class="booking-detail-head__code">
+                  <span class="text-gray text-sm">Mã đặt lịch</span>
+                  <strong id="bookingCode">—</strong>
+                </div>
+                <div class="booking-detail-head__date">
+                  <span class="text-gray text-sm">Ngày đặt</span>
+                  <strong id="bookingCreatedAt">—</strong>
+                </div>
+              </div>
+              <div class="booking-detail-head__right">
+                <span class="badge" id="bookingStatusBadge">—</span>
+              </div>
+            </div>
+
+            <div class="admin-detail-layout">
+
+              <!-- CỘT TRÁI -->
+              <div class="admin-detail-main">
+
+                <!-- THÔNG TIN BỆNH NHÂN -->
+                <div class="card card--pad">
+                  <div class="card__head">
+                    <h2 class="card__title">🧑‍🦱 Thông tin bệnh nhân</h2>
+                    <a href="../users/detail.html" class="text-primary text-sm" id="viewPatientLink">
+                      Xem hồ sơ →
+                    </a>
+                  </div>
+                  <div class="info-list">
+                    <div class="info-row">
+                      <span>Họ và tên:</span>
+                      <strong id="patientName">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Số điện thoại:</span>
+                      <strong id="patientPhone">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Email:</span>
+                      <strong id="patientEmail">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Giới tính:</span>
+                      <strong id="patientGender">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Ngày sinh:</span>
+                      <strong id="patientBirthday">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Địa chỉ:</span>
+                      <strong id="patientAddress">—</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- THÔNG TIN BÁC SĨ -->
+                <div class="card card--pad">
+                  <div class="card__head">
+                    <h2 class="card__title">👨‍⚕️ Thông tin bác sĩ</h2>
+                    <a href="../doctors/edit.html" class="text-primary text-sm" id="viewDoctorLink">
+                      Xem bác sĩ →
+                    </a>
+                  </div>
+                  <div class="info-list">
+                    <div class="info-row">
+                      <span>Bác sĩ:</span>
+                      <strong id="doctorName">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Chuyên khoa:</span>
+                      <strong id="doctorSpecialty">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Học vị:</span>
+                      <strong id="doctorDegree">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Địa chỉ khám:</span>
+                      <strong id="doctorAddress">—</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- THÔNG TIN LỊCH KHÁM -->
+                <div class="card card--pad">
+                  <h2 class="card__title">📅 Thông tin lịch khám</h2>
+                  <div class="info-list">
+                    <div class="info-row">
+                      <span>Ngày khám:</span>
+                      <strong id="bookingDate">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Giờ khám:</span>
+                      <strong id="bookingTime">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Phương thức thanh toán:</span>
+                      <strong id="bookingPayment">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Phí khám:</span>
+                      <strong id="bookingPrice" class="text-primary">—</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TRIỆU CHỨNG -->
+                <div class="card card--pad">
+                  <h2 class="card__title">📝 Triệu chứng / Ghi chú</h2>
+                  <p id="bookingNote" class="text-gray">—</p>
+                </div>
+
+              </div>
+
+              <!-- CỘT PHẢI -->
+              <aside class="admin-detail-side">
+
+                <!-- TIMELINE TRẠNG THÁI -->
+                <div class="card card--pad">
+                  <h2 class="card__title">📌 Trạng thái lịch khám</h2>
+                  <ul class="timeline" id="statusTimeline">
+                    <!-- JS render -->
+                  </ul>
+                </div>
+
+                <!-- THANH TOÁN -->
+                <div class="card card--pad">
+                  <h2 class="card__title">💳 Thanh toán</h2>
+                  <div class="info-list">
+                    <div class="info-row">
+                      <span>Phí khám:</span>
+                      <strong id="payPrice">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Giảm giá:</span>
+                      <strong id="payDiscount" class="text-success">0 đ</strong>
+                    </div>
+                    <div class="info-row info-row--total">
+                      <span>Tổng tiền:</span>
+                      <strong id="payTotal" class="text-primary">—</strong>
+                    </div>
+                    <div class="info-row">
+                      <span>Trạng thái:</span>
+                      <strong id="payStatus">—</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- HÀNH ĐỘNG NHANH -->
+                <div class="card card--pad">
+                  <h2 class="card__title">⚡ Hành động nhanh</h2>
+                  <div class="form-actions form-actions--vertical">
+                    <button type="button" class="btn btn--success btn--block"
+                            onclick="confirmBooking()" id="quickConfirmBtn">
+                      ✅ Xác nhận lịch
+                    </button>
+                    <button type="button" class="btn btn--outline btn--block"
+                            onclick="markCompleted()" id="markCompletedBtn">
+                      🏥 Đánh dấu đã khám
+                    </button>
+                    <button type="button" class="btn btn--danger btn--block"
+                            onclick="cancelBooking()" id="quickCancelBtn">
+                      ❌ Hủy lịch
+                    </button>
+                    <button type="button" class="btn btn--outline btn--block"
+                            onclick="sendReminder()">
+                      📧 Gửi nhắc nhở
+                    </button>
+                  </div>
+                </div>
+
+              </aside>
+            </div>
+
+          </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="admin-footer">
+          <p>© 2026 MediCare Admin Panel.</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- MODAL XÁC NHẬN -->
+    <div class="modal" id="confirmModal">
+      <div class="modal__overlay" onclick="closeModal('confirmModal')"></div>
+      <div class="modal__content modal__content--sm">
+        <div class="modal__header">
+          <h3 class="modal__title">Xác nhận lịch khám</h3>
+          <button class="modal__close" onclick="closeModal('confirmModal')">✕</button>
+        </div>
+        <div class="modal__body">
+          <p>Xác nhận lịch khám <strong id="confirmBookingCode">—</strong>?</p>
+        </div>
+        <div class="modal__footer">
+          <button class="btn btn--outline" onclick="closeModal('confirmModal')">Hủy</button>
+          <button class="btn btn--success" id="confirmBookingBtn">✅ Xác nhận</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL HỦY -->
+    <div class="modal" id="cancelModal">
+      <div class="modal__overlay" onclick="closeModal('cancelModal')"></div>
+      <div class="modal__content modal__content--sm">
+        <div class="modal__header">
+          <h3 class="modal__title">Hủy lịch khám</h3>
+          <button class="modal__close" onclick="closeModal('cancelModal')">✕</button>
+        </div>
+        <div class="modal__body">
+          <p>Bạn có chắc muốn hủy lịch khám <strong id="cancelBookingCode">—</strong>?</p>
+          <div class="form-group" style="margin-top:12px">
+            <label for="cancelReason">Lý do hủy</label>
+            <textarea id="cancelReason" class="form-control" rows="3"
+                      placeholder="Nhập lý do hủy lịch..."></textarea>
+          </div>
+        </div>
+        <div class="modal__footer">
+          <button class="btn btn--outline" onclick="closeModal('cancelModal')">Không</button>
+          <button class="btn btn--danger" id="confirmCancelBtn">Hủy lịch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="../../js/core/config.js"></script>
+    <script src="../../js/core/storage.js"></script>
+    <script src="../../js/core/utils.js"></script>
+    <script src="../../js/core/validator.js"></script>
+    <script src="../../js/data/specialties.js"></script>
+    <script src="../../js/data/doctors.js"></script>
+    <script src="../../js/data/seed.js"></script>
+    <script src="../../js/services/auth.service.js"></script>
+    <script src="../../js/services/doctor.service.js"></script>
+    <script src="../../js/services/booking.service.js"></script>
+    <script src="../../js/services/user.service.js"></script>
+    <script src="../../js/components/header.js"></script>
+    <script src="../../js/components/footer.js"></script>
+    <script src="../../js/components/sidebar.js"></script>
+    <script src="../../js/components/toast.js"></script>
+    <script src="../../js/components/modal.js"></script>
+    <script src="../../js/pages/admin.js"></script>
+    <script>
+/* ============================================================
+   MEDICARE ADMIN — BOOKING DETAIL CONTROLLER
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  const BookingDetailPage = {
+    booking: null,
+    doctor: null,
+    user: null,
+    bookingId: null,
+
+    /* ========================================================
+       INIT
+       ======================================================== */
+
+    init() {
+      this.bookingId = new URLSearchParams(
+        window.location.search
+      ).get('id');
+
+      this.bindEvents();
+
+      if (!this.bookingId) {
+        this.showNotFound();
+        return;
+      }
+
+      this.loadBooking();
+    },
+
+    /* ========================================================
+       LOAD BOOKING
+       ======================================================== */
+
+    loadBooking() {
+      const bookings = this.getBookings();
+
+      this.booking = bookings.find(
+        (booking) =>
+          String(booking?.id) ===
+          String(this.bookingId)
+      );
+
+      if (!this.booking) {
+        this.showNotFound();
+        return;
+      }
+
+      this.doctor = this.findDoctor(
+        this.booking.doctorId
+      );
+
+      this.user = this.findUser(
+        this.booking.userId
+      );
+
+      this.render();
+    },
+
+    /* ========================================================
+       STORAGE
+       ======================================================== */
+
+    getBookings() {
+      try {
+        if (
+          typeof Storage !== 'undefined' &&
+          typeof Storage.getBookings === 'function'
+        ) {
+          const result =
+            Storage.getBookings();
+
+          if (Array.isArray(result)) {
+            return result;
+          }
+        }
+      } catch (error) {
+        console.warn(
+          '[BookingDetail] Storage.getBookings lỗi:',
+          error
+        );
+      }
+
+      return this.readArray(
+        'medicare_bookings'
+      );
+    },
+
+    getDoctors() {
+      try {
+        if (
+          typeof Storage !== 'undefined' &&
+          typeof Storage.getDoctors === 'function'
+        ) {
+          const result =
+            Storage.getDoctors();
+
+          if (Array.isArray(result)) {
+            return result;
+          }
+        }
+      } catch (error) {
+        console.warn(
+          '[BookingDetail] Storage.getDoctors lỗi:',
+          error
+        );
+      }
+
+      return this.readArray(
+        'medicare_doctors'
+      );
+    },
+
+    getUsers() {
+      try {
+        if (
+          typeof Storage !== 'undefined' &&
+          typeof Storage.getUsers === 'function'
+        ) {
+          const result =
+            Storage.getUsers();
+
+          if (Array.isArray(result)) {
+            return result;
+          }
+        }
+      } catch (error) {
+        console.warn(
+          '[BookingDetail] Storage.getUsers lỗi:',
+          error
+        );
+      }
+
+      return this.readArray(
+        'medicare_users'
+      );
+    },
+
+    readArray(key) {
+      try {
+        const value =
+          JSON.parse(
+            localStorage.getItem(key) ||
+            '[]'
+          );
+
+        return Array.isArray(value)
+          ? value
+          : [];
+      } catch {
+        return [];
+      }
+    },
+
+    saveBookings(bookings) {
+      try {
+        if (
+          typeof Storage !== 'undefined' &&
+          typeof Storage.setBookings === 'function'
+        ) {
+          Storage.setBookings(bookings);
+          return true;
+        }
+      } catch (error) {
+        console.warn(
+          '[BookingDetail] Storage.setBookings lỗi:',
+          error
+        );
+      }
+
+      try {
+        localStorage.setItem(
+          'medicare_bookings',
+          JSON.stringify(bookings)
+        );
+
+        return true;
+      } catch (error) {
+        console.error(
+          '[BookingDetail] Không thể lưu booking:',
+          error
+        );
+
+        return false;
+      }
+    },
+
+    /* ========================================================
+       FIND RELATED DATA
+       ======================================================== */
+
+    findDoctor(doctorId) {
+      if (
+        doctorId === null ||
+        doctorId === undefined
+      ) {
+        return null;
+      }
+
+      return (
+        this.getDoctors().find(
+          (doctor) =>
+            String(doctor?.id) ===
+            String(doctorId)
+        ) || null
+      );
+    },
+
+    findUser(userId) {
+      if (
+        userId === null ||
+        userId === undefined
+      ) {
+        return null;
+      }
+
+      return (
+        this.getUsers().find(
+          (user) =>
+            String(user?.id) ===
+            String(userId)
+        ) || null
+      );
+    },
+
+    /* ========================================================
+       RENDER
+       ======================================================== */
+
+    render() {
+      const booking =
+        this.booking;
+
+      this.hideLoading();
+
+      const code =
+        booking.code ||
+        booking.bookingCode ||
+        `MC${booking.id}`;
+
+      this.text(
+        'detailSubtitle',
+        `Thông tin lịch khám ${code}`
+      );
+
+      this.text(
+        'bookingCode',
+        code
+      );
+
+      this.text(
+        'bookingCreatedAt',
+        this.formatDateTime(
+          booking.createdAt ||
+          booking.created_at ||
+          booking.createdDate
+        )
+      );
+
+      this.renderPatient();
+      this.renderDoctor();
+      this.renderBooking();
+      this.renderPayment();
+      this.renderStatus();
+      this.renderTimeline();
+      this.renderLinks();
+      this.renderActionButtons();
+
+      const content =
+        document.getElementById(
+          'detailContent'
+        );
+
+      if (content) {
+        content.style.display = '';
+      }
+    },
+
+    /* ========================================================
+       PATIENT
+       ======================================================== */
+
+    renderPatient() {
+      const booking =
+        this.booking || {};
+
+      const user =
+        this.user || {};
+
+      const patient =
+        booking.patient || {};
+
+      const name =
+        booking.patientName ||
+        booking.fullName ||
+        patient.name ||
+        patient.fullName ||
+        user.name ||
+        user.fullName ||
+        'Chưa cập nhật';
+
+      const phone =
+        booking.patientPhone ||
+        booking.phone ||
+        patient.phone ||
+        user.phone ||
+        'Chưa cập nhật';
+
+      const email =
+        booking.patientEmail ||
+        booking.email ||
+        patient.email ||
+        user.email ||
+        'Chưa cập nhật';
+
+      const gender =
+        booking.patientGender ||
+        booking.gender ||
+        patient.gender ||
+        user.gender;
+
+      const birthday =
+        booking.patientBirthday ||
+        booking.birthday ||
+        booking.dateOfBirth ||
+        patient.birthday ||
+        patient.dateOfBirth ||
+        user.birthday ||
+        user.dateOfBirth;
+
+      const address =
+        booking.patientAddress ||
+        booking.address ||
+        patient.address ||
+        user.address ||
+        'Chưa cập nhật';
+
+      this.text(
+        'patientName',
+        name
+      );
+
+      this.text(
+        'patientPhone',
+        phone
+      );
+
+      this.text(
+        'patientEmail',
+        email
+      );
+
+      this.text(
+        'patientGender',
+        this.formatGender(gender)
+      );
+
+      this.text(
+        'patientBirthday',
+        birthday
+          ? this.formatDate(birthday)
+          : 'Chưa cập nhật'
+      );
+
+      this.text(
+        'patientAddress',
+        address
+      );
+    },
+
+    /* ========================================================
+       DOCTOR
+       ======================================================== */
+
+    renderDoctor() {
+      const booking =
+        this.booking || {};
+
+      const doctor =
+        this.doctor || {};
+
+      const name =
+        doctor.name ||
+        booking.doctorName ||
+        'Chưa cập nhật';
+
+      const degree =
+        doctor.degree ||
+        booking.doctorDegree ||
+        '';
+
+      const displayName =
+        this.getDoctorDisplayName(
+          name,
+          degree
+        );
+
+      this.text(
+        'doctorName',
+        displayName
+      );
+
+      this.text(
+        'doctorSpecialty',
+        doctor.specialty ||
+        booking.specialty ||
+        booking.doctorSpecialty ||
+        'Chưa cập nhật'
+      );
+
+      this.text(
+        'doctorDegree',
+        degree ||
+        'Chưa cập nhật'
+      );
+
+      this.text(
+        'doctorAddress',
+        doctor.address ||
+        doctor.clinicAddress ||
+        booking.doctorAddress ||
+        booking.clinicAddress ||
+        'Chưa cập nhật'
+      );
+    },
+
+    /* ========================================================
+       BOOKING
+       ======================================================== */
+
+    renderBooking() {
+      const booking =
+        this.booking || {};
+
+      const date =
+        booking.date ||
+        booking.bookingDate ||
+        booking.appointmentDate;
+
+      const time =
+        booking.time ||
+        booking.bookingTime ||
+        booking.appointmentTime ||
+        booking.timeSlot;
+
+      const price =
+        this.getPrice();
+
+      this.text(
+        'bookingDate',
+        date
+          ? this.formatDate(date)
+          : 'Chưa cập nhật'
+      );
+
+      this.text(
+        'bookingTime',
+        time ||
+        'Chưa cập nhật'
+      );
+
+      this.text(
+        'bookingPayment',
+        this.formatPayment(
+          booking.paymentMethod ||
+          booking.payment
+        )
+      );
+
+      this.text(
+        'bookingPrice',
+        this.formatCurrency(price)
+      );
+
+      this.text(
+        'bookingNote',
+        booking.note ||
+        booking.symptoms ||
+        booking.reason ||
+        booking.description ||
+        'Không có ghi chú.'
+      );
+    },
+
+    /* ========================================================
+       PAYMENT
+       ======================================================== */
+
+    renderPayment() {
+      const booking =
+        this.booking || {};
+
+      const price =
+        this.getPrice();
+
+      const discount =
+        Math.max(
+          0,
+          Number(
+            booking.discount ||
+            booking.discountAmount
+          ) || 0
+        );
+
+      const total =
+        Math.max(
+          0,
+          Number(
+            booking.total ||
+            booking.totalPrice ||
+            booking.finalPrice
+          ) ||
+          price - discount
+        );
+
+      this.text(
+        'payPrice',
+        this.formatCurrency(price)
+      );
+
+      this.text(
+        'payDiscount',
+        this.formatCurrency(discount)
+      );
+
+      this.text(
+        'payTotal',
+        this.formatCurrency(total)
+      );
+
+      this.text(
+        'payStatus',
+        this.formatPaymentStatus(
+          booking.paymentStatus
+        )
+      );
+    },
+
+    getPrice() {
+      const booking =
+        this.booking || {};
+
+      const doctor =
+        this.doctor || {};
+
+      return Math.max(
+        0,
+        Number(
+          booking.price ||
+          booking.consultationFee ||
+          booking.doctorPrice ||
+          doctor.price
+        ) || 0
+      );
+    },
+
+    /* ========================================================
+       STATUS
+       ======================================================== */
+
+    normalizeStatus(status) {
+      const value =
+        String(status || '')
+          .trim()
+          .toLowerCase();
+
+      const map = {
+        pending: 'pending',
+        waiting: 'pending',
+        wait: 'pending',
+        'waiting-confirmation':
+          'pending',
+        waiting_confirmation:
+          'pending',
+
+        confirmed:
+          'confirmed',
+        confirm:
+          'confirmed',
+
+        completed:
+          'completed',
+        complete:
+          'completed',
+        done:
+          'completed',
+
+        cancelled:
+          'cancelled',
+        canceled:
+          'cancelled',
+        cancel:
+          'cancelled',
+      };
+
+      return (
+        map[value] ||
+        'pending'
+      );
+    },
+
+    renderStatus() {
+      const status =
+        this.normalizeStatus(
+          this.booking.status
+        );
+
+      const badge =
+        document.getElementById(
+          'bookingStatusBadge'
+        );
+
+      if (!badge) return;
+
+      const config = {
+        pending: {
+          text: 'Chờ xác nhận',
+          className:
+            'badge--warning',
+        },
+
+        confirmed: {
+          text: 'Đã xác nhận',
+          className:
+            'badge--primary',
+        },
+
+        completed: {
+          text: 'Đã khám',
+          className:
+            'badge--success',
+        },
+
+        cancelled: {
+          text: 'Đã hủy',
+          className:
+            'badge--danger',
+        },
+      };
+
+      const item =
+        config[status];
+
+      badge.className =
+        `badge ${item.className}`;
+
+      badge.textContent =
+        item.text;
+    },
+
+    /* ========================================================
+       TIMELINE
+       ======================================================== */
+
+    renderTimeline() {
+      const timeline =
+        document.getElementById(
+          'statusTimeline'
+        );
+
+      if (!timeline) return;
+
+      const booking =
+        this.booking;
+
+      const status =
+        this.normalizeStatus(
+          booking.status
+        );
+
+      const items = [];
+
+      items.push({
+        title: 'Đã tạo lịch',
+        date:
+          booking.createdAt ||
+          booking.created_at,
+        active: true,
+      });
+
+      if (
+        status === 'confirmed' ||
+        status === 'completed'
+      ) {
+        items.push({
+          title:
+            'Lịch đã được xác nhận',
+          date:
+            booking.confirmedAt ||
+            booking.updatedAt,
+          active: true,
+        });
+      }
+
+      if (
+        status === 'completed'
+      ) {
+        items.push({
+          title:
+            'Bệnh nhân đã khám',
+          date:
+            booking.completedAt ||
+            booking.updatedAt,
+          active: true,
+        });
+      }
+
+      if (
+        status === 'cancelled'
+      ) {
+        items.push({
+          title:
+            'Lịch khám đã hủy',
+          date:
+            booking.cancelledAt ||
+            booking.updatedAt,
+          active: true,
+          danger: true,
+        });
+
+        if (
+          booking.cancelReason
+        ) {
+          items.push({
+            title:
+              `Lý do: ${booking.cancelReason}`,
+            date: null,
+            active: false,
+            danger: true,
+          });
+        }
+      }
+
+      timeline.innerHTML =
+        items
+          .map(
+            (item) => `
+              <li class="timeline__item ${
+                item.active
+                  ? 'is-active'
+                  : ''
+              } ${
+                item.danger
+                  ? 'is-danger'
+                  : ''
+              }">
+                <span
+                  class="timeline__marker"
+                  aria-hidden="true"
+                ></span>
+
+                <div class="timeline__content">
+                  <strong>
+                    ${this.escape(item.title)}
+                  </strong>
+
+                  ${
+                    item.date
+                      ? `
+                        <small>
+                          ${this.escape(
+                            this.formatDateTime(
+                              item.date
+                            )
+                          )}
+                        </small>
+                      `
+                      : ''
+                  }
+                </div>
+              </li>
+            `
+          )
+          .join('');
+    },
+
+    /* ========================================================
+       LINKS
+       ======================================================== */
+
+    renderLinks() {
+      const patientLink =
+        document.getElementById(
+          'viewPatientLink'
+        );
+
+      if (patientLink) {
+        if (
+          this.booking.userId !==
+            undefined &&
+          this.booking.userId !==
+            null
+        ) {
+          patientLink.href =
+            `../users/detail.html?id=${encodeURIComponent(
+              this.booking.userId
+            )}`;
+        } else {
+          patientLink.style.display =
+            'none';
+        }
+      }
+
+      const doctorLink =
+        document.getElementById(
+          'viewDoctorLink'
+        );
+
+      if (doctorLink) {
+        if (
+          this.booking.doctorId !==
+            undefined &&
+          this.booking.doctorId !==
+            null
+        ) {
+          doctorLink.href =
+            `../doctors/edit.html?id=${encodeURIComponent(
+              this.booking.doctorId
+            )}`;
+        } else {
+          doctorLink.style.display =
+            'none';
+        }
+      }
+    },
+
+    /* ========================================================
+       ACTION BUTTONS
+       ======================================================== */
+
+    renderActionButtons() {
+      const status =
+        this.normalizeStatus(
+          this.booking.status
+        );
+
+      const confirmBtn =
+        document.getElementById(
+          'confirmBtn'
+        );
+
+      const cancelBtn =
+        document.getElementById(
+          'cancelBtn'
+        );
+
+      const quickConfirm =
+        document.getElementById(
+          'quickConfirmBtn'
+        );
+
+      const quickCancel =
+        document.getElementById(
+          'quickCancelBtn'
+        );
+
+      const completeBtn =
+        document.getElementById(
+          'markCompletedBtn'
+        );
+
+      this.display(
+        confirmBtn,
+        status === 'pending'
+      );
+
+      this.display(
+        quickConfirm,
+        status === 'pending'
+      );
+
+      this.display(
+        cancelBtn,
+        status === 'pending' ||
+          status === 'confirmed'
+      );
+
+      this.display(
+        quickCancel,
+        status === 'pending' ||
+          status === 'confirmed'
+      );
+
+      this.display(
+        completeBtn,
+        status === 'confirmed'
+      );
+    },
+
+    /* ========================================================
+       UPDATE STATUS
+       ======================================================== */
+
+    updateStatus(
+      newStatus,
+      extraData = {}
+    ) {
+      const bookings =
+        this.getBookings();
+
+      const index =
+        bookings.findIndex(
+          (booking) =>
+            String(booking.id) ===
+            String(this.bookingId)
+        );
+
+      if (index === -1) {
+        this.toast(
+          'Không tìm thấy lịch khám.',
+          'error'
+        );
+        return false;
+      }
+
+      const now =
+        new Date().toISOString();
+
+      bookings[index] = {
+        ...bookings[index],
+        ...extraData,
+        status: newStatus,
+        updatedAt: now,
+      };
+
+      if (
+        newStatus === 'confirmed'
+      ) {
+        bookings[index].confirmedAt =
+          now;
+      }
+
+      if (
+        newStatus === 'completed'
+      ) {
+        bookings[index].completedAt =
+          now;
+      }
+
+      if (
+        newStatus === 'cancelled'
+      ) {
+        bookings[index].cancelledAt =
+          now;
+      }
+
+      if (
+        !this.saveBookings(bookings)
+      ) {
+        this.toast(
+          'Không thể lưu thay đổi.',
+          'error'
+        );
+        return false;
+      }
+
+      this.booking =
+        bookings[index];
+
+      this.render();
+
+      return true;
+    },
+
+    /* ========================================================
+       CONFIRM
+       ======================================================== */
+
+    openConfirmModal() {
+      const code =
+        this.booking.code ||
+        this.booking.bookingCode ||
+        `MC${this.booking.id}`;
+
+      this.text(
+        'confirmBookingCode',
+        code
+      );
+
+      this.openModal(
+        'confirmModal'
+      );
+    },
+
+    confirmBooking() {
+      if (
+        this.normalizeStatus(
+          this.booking.status
+        ) !== 'pending'
+      ) {
+        return;
+      }
+
+      if (
+        this.updateStatus(
+          'confirmed'
+        )
+      ) {
+        this.closeModal(
+          'confirmModal'
+        );
+
+        this.toast(
+          'Đã xác nhận lịch khám.',
+          'success'
+        );
+      }
+    },
+
+    /* ========================================================
+       COMPLETE
+       ======================================================== */
+
+    markCompleted() {
+      if (
+        this.normalizeStatus(
+          this.booking.status
+        ) !== 'confirmed'
+      ) {
+        this.toast(
+          'Lịch khám cần được xác nhận trước.',
+          'warning'
+        );
+        return;
+      }
+
+      if (
+        this.updateStatus(
+          'completed',
+          {
+            paymentStatus:
+              'paid',
+          }
+        )
+      ) {
+        this.toast(
+          'Đã cập nhật trạng thái đã khám.',
+          'success'
+        );
+      }
+    },
+
+    /* ========================================================
+       CANCEL
+       ======================================================== */
+
+    openCancelModal() {
+      const status =
+        this.normalizeStatus(
+          this.booking.status
+        );
+
+      if (
+        status === 'completed' ||
+        status === 'cancelled'
+      ) {
+        return;
+      }
+
+      const code =
+        this.booking.code ||
+        this.booking.bookingCode ||
+        `MC${this.booking.id}`;
+
+      this.text(
+        'cancelBookingCode',
+        code
+      );
+
+      const reason =
+        document.getElementById(
+          'cancelReason'
+        );
+
+      if (reason) {
+        reason.value = '';
+      }
+
+      this.openModal(
+        'cancelModal'
+      );
+    },
+
+    cancelBooking() {
+      const reasonElement =
+        document.getElementById(
+          'cancelReason'
+        );
+
+      const reason =
+        reasonElement
+          ? reasonElement.value.trim()
+          : '';
+
+      if (!reason) {
+        this.toast(
+          'Vui lòng nhập lý do hủy lịch.',
+          'warning'
+        );
+
+        reasonElement?.focus();
+        return;
+      }
+
+      if (
+        this.updateStatus(
+          'cancelled',
+          {
+            cancelReason:
+              reason,
+          }
+        )
+      ) {
+        this.closeModal(
+          'cancelModal'
+        );
+
+        this.toast(
+          'Đã hủy lịch khám.',
+          'success'
+        );
+      }
+    },
+
+    /* ========================================================
+       REMINDER
+       ======================================================== */
+
+    sendReminder() {
+      const status =
+        this.normalizeStatus(
+          this.booking.status
+        );
+
+      if (
+        status === 'cancelled'
+      ) {
+        this.toast(
+          'Không thể gửi nhắc nhở cho lịch đã hủy.',
+          'warning'
+        );
+        return;
+      }
+
+      this.toast(
+        'Đã ghi nhận yêu cầu gửi nhắc lịch.',
+        'success'
+      );
+    },
+
+    /* ========================================================
+       EVENTS
+       ======================================================== */
+
+    bindEvents() {
+      document
+        .getElementById(
+          'confirmBtn'
+        )
+        ?.addEventListener(
+          'click',
+          () =>
+            this.openConfirmModal()
+        );
+
+      document
+        .getElementById(
+          'cancelBtn'
+        )
+        ?.addEventListener(
+          'click',
+          () =>
+            this.openCancelModal()
+        );
+
+      document
+        .getElementById(
+          'confirmBookingBtn'
+        )
+        ?.addEventListener(
+          'click',
+          () =>
+            this.confirmBooking()
+        );
+
+      document
+        .getElementById(
+          'confirmCancelBtn'
+        )
+        ?.addEventListener(
+          'click',
+          () =>
+            this.cancelBooking()
+        );
+
+      document
+        .getElementById(
+          'printBtn'
+        )
+        ?.addEventListener(
+          'click',
+          () =>
+            window.print()
+        );
+    },
+
+    /* ========================================================
+       MODAL
+       ======================================================== */
+
+    openModal(id) {
+      const modal =
+        document.getElementById(id);
+
+      if (!modal) return;
+
+      modal.classList.add(
+        'show'
+      );
+
+      modal.classList.add(
+        'is-open'
+      );
+
+      modal.setAttribute(
+        'aria-hidden',
+        'false'
+      );
+
+      document.body.classList.add(
+        'modal-open'
+      );
+    },
+
+    closeModal(id) {
+      const modal =
+        document.getElementById(id);
+
+      if (!modal) return;
+
+      modal.classList.remove(
+        'show'
+      );
+
+      modal.classList.remove(
+        'is-open'
+      );
+
+      modal.setAttribute(
+        'aria-hidden',
+        'true'
+      );
+
+      if (
+        !document.querySelector(
+          '.modal.show, .modal.is-open'
+        )
+      ) {
+        document.body.classList.remove(
+          'modal-open'
+        );
+      }
+    },
+
+    /* ========================================================
+       NOT FOUND
+       ======================================================== */
+
+    showNotFound() {
+      this.hideLoading();
+
+      const content =
+        document.getElementById(
+          'detailContent'
+        );
+
+      const notFound =
+        document.getElementById(
+          'notFound'
+        );
+
+      if (content) {
+        content.style.display =
+          'none';
+      }
+
+      if (notFound) {
+        notFound.style.display =
+          '';
+      }
+
+      this.text(
+        'detailSubtitle',
+        'Không tìm thấy lịch khám'
+      );
+    },
+
+    hideLoading() {
+      const loading =
+        document.getElementById(
+          'loading'
+        );
+
+      if (loading) {
+        loading.style.display =
+          'none';
+      }
+    },
+
+    /* ========================================================
+       FORMAT DATE
+       ======================================================== */
+
+    formatDate(value) {
+      if (!value) return '—';
+
+      const text =
+        String(value).trim();
+
+      const match =
+        text.match(
+          /^(\d{4})-(\d{2})-(\d{2})$/
+        );
+
+      if (match) {
+        return `${match[3]}/${match[2]}/${match[1]}`;
+      }
+
+      const date =
+        new Date(value);
+
+      if (
+        Number.isNaN(
+          date.getTime()
+        )
+      ) {
+        return text;
+      }
+
+      return new Intl.DateTimeFormat(
+        'vi-VN',
+        {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+        }
+      ).format(date);
+    },
+
+    formatDateTime(value) {
+      if (!value) {
+        return 'Chưa cập nhật';
+      }
+
+      const date =
+        new Date(value);
+
+      if (
+        Number.isNaN(
+          date.getTime()
+        )
+      ) {
+        return this.formatDate(
+          value
+        );
+      }
+
+      return new Intl.DateTimeFormat(
+        'vi-VN',
+        {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        }
+      ).format(date);
+    },
+
+    /* ========================================================
+       FORMAT GENDER
+       ======================================================== */
+
+    formatGender(value) {
+      const gender =
+        String(value || '')
+          .trim()
+          .toLowerCase();
+
+      if (
+        gender === 'male' ||
+        gender === 'nam' ||
+        gender === 'm'
+      ) {
+        return 'Nam';
+      }
+
+      if (
+        gender === 'female' ||
+        gender === 'nữ' ||
+        gender === 'nu' ||
+        gender === 'f'
+      ) {
+        return 'Nữ';
+      }
+
+      if (
+        gender === 'other'
+      ) {
+        return 'Khác';
+      }
+
+      return (
+        value ||
+        'Chưa cập nhật'
+      );
+    },
+
+    /* ========================================================
+       PAYMENT
+       ======================================================== */
+
+    formatPayment(value) {
+      const payment =
+        String(value || '')
+          .trim()
+          .toLowerCase();
+
+      const map = {
+        cash:
+          'Thanh toán tại phòng khám',
+
+        clinic:
+          'Thanh toán tại phòng khám',
+
+        offline:
+          'Thanh toán tại phòng khám',
+
+        transfer:
+          'Chuyển khoản',
+
+        bank:
+          'Chuyển khoản',
+
+        bank_transfer:
+          'Chuyển khoản',
+
+        banking:
+          'Chuyển khoản',
+
+        momo:
+          'Ví MoMo',
+
+        vnpay:
+          'VNPay',
+
+        card:
+          'Thẻ ngân hàng',
+      };
+
+      return (
+        map[payment] ||
+        value ||
+        'Thanh toán tại phòng khám'
+      );
+    },
+
+    formatPaymentStatus(value) {
+      const status =
+        String(value || '')
+          .trim()
+          .toLowerCase();
+
+      if (
+        [
+          'paid',
+          'completed',
+          'success',
+        ].includes(status)
+      ) {
+        return 'Đã thanh toán';
+      }
+
+      if (
+        [
+          'refunded',
+          'refund',
+        ].includes(status)
+      ) {
+        return 'Đã hoàn tiền';
+      }
+
+      return 'Chưa thanh toán';
+    },
+
+    /* ========================================================
+       CURRENCY
+       ======================================================== */
+
+    formatCurrency(value) {
+      const number =
+        Number(value) || 0;
+
+      try {
+        return new Intl.NumberFormat(
+          'vi-VN',
+          {
+            style: 'currency',
+            currency: 'VND',
+          }
+        ).format(number);
+      } catch {
+        return `${number.toLocaleString(
+          'vi-VN'
+        )} đ`;
+      }
+    },
+
+    /* ========================================================
+       DOCTOR NAME
+       ======================================================== */
+
+    getDoctorDisplayName(
+      name,
+      degree
+    ) {
+      const cleanName =
+        String(name || '')
+          .replace(
+            /^(BS\.?|Bác sĩ)\s+/i,
+            ''
+          )
+          .trim();
+
+      const cleanDegree =
+        String(degree || '')
+          .trim();
+
+      if (!cleanDegree) {
+        return cleanName;
+      }
+
+      return `${cleanDegree} ${cleanName}`;
+    },
+
+    /* ========================================================
+       UI HELPERS
+       ======================================================== */
+
+    text(id, value) {
+      const element =
+        document.getElementById(id);
+
+      if (element) {
+        element.textContent =
+          value ?? '—';
+      }
+    },
+
+    display(element, visible) {
+      if (!element) return;
+
+      element.style.display =
+        visible ? '' : 'none';
+    },
+
+    escape(value) {
+      return String(
+        value ?? ''
+      ).replace(
+        /[&<>"']/g,
+        (character) => {
+          const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;',
+          };
+
+          return map[character];
+        }
+      );
+    },
+
+    toast(message, type) {
+      if (
+        typeof ToastComponent !==
+          'undefined' &&
+        typeof ToastComponent[
+          type
+        ] === 'function'
+      ) {
+        ToastComponent[type](
+          message
+        );
+        return;
+      }
+
+      if (
+        window.toast &&
+        typeof window.toast[
+          type
+        ] === 'function'
+      ) {
+        window.toast[type](
+          message
+        );
+        return;
+      }
+
+      console.log(
+        `[${type}] ${message}`
+      );
+    },
+  };
+
+  /* ==========================================================
+     GLOBAL ACTIONS
+     Giữ tương thích onclick hiện có trong HTML
+     ========================================================== */
+
+  window.BookingDetailPage =
+    BookingDetailPage;
+
+  window.confirmBooking =
+    function () {
+      BookingDetailPage
+        .openConfirmModal();
+    };
+
+  window.markCompleted =
+    function () {
+      BookingDetailPage
+        .markCompleted();
+    };
+
+  window.cancelBooking =
+    function () {
+      BookingDetailPage
+        .openCancelModal();
+    };
+
+  window.sendReminder =
+    function () {
+      BookingDetailPage
+        .sendReminder();
+    };
+
+  /*
+   * HTML cũ đang gọi closeModal()
+   * trực tiếp.
+   */
+  window.closeModal =
+    function (id) {
+      BookingDetailPage
+        .closeModal(id);
+    };
+
+  /* ==========================================================
+     AUTO INIT
+     ========================================================== */
+
+  const start = () => {
+    BookingDetailPage.init();
+  };
+
+  if (
+    document.readyState ===
+    'loading'
+  ) {
+    document.addEventListener(
+      'DOMContentLoaded',
+      start,
+      {
+        once: true,
+      }
+    );
+  } else {
+    start();
+  }
+})();
+</script>
+    <script src="../../js/app.js"></script>
+  </body>
+  </html>
